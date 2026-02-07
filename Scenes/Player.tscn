@@ -425,7 +425,7 @@ autoplay = &"RunSide"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1185868346]
 position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_yoq75")
-disabled = true
+disabled = false
 
 [node name="InputComponent" type="Node" parent="CharacterBody2D" unique_id=1848018490]
 script = ExtResource("4_dewec")

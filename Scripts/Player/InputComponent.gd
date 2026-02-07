@@ -18,15 +18,15 @@ func CheckInputs():
 	
 	if raw_input != Vector2.ZERO:
 		if _was_horizontal_priority and raw_input.x != 0:
-			move_vector.x = raw_input.x
+			move_vector.x = sign(raw_input.x)
 		elif not _was_horizontal_priority and raw_input.y != 0:
-			move_vector.y = raw_input.y
+			move_vector.y = sign(raw_input.y)
 		else:
 			if raw_input.x != 0:
-				move_vector.x = raw_input.x
+				move_vector.x = sign(raw_input.x)
 				_was_horizontal_priority = true
 			else:
-				move_vector.y = raw_input.y
+				move_vector.y = sign(raw_input.y)
 				_was_horizontal_priority = false
 	
 	if move_vector != Vector2.ZERO:
