@@ -397,15 +397,14 @@ _data = {
 &"RunUp": SubResource("Animation_ksbbd")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dewec"]
-radius = 5.0
-height = 22.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoq75"]
+size = Vector2(6, 10)
 
 [node name="Player" type="Node2D" unique_id=787871135]
 z_index = 2
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1826747499]
-collision_layer = 2
+collision_layer = 3
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_kyqiw")
@@ -424,8 +423,8 @@ libraries/ = SubResource("AnimationLibrary_kne1u")
 autoplay = &"RunSide"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1185868346]
-position = Vector2(0, 6)
-shape = SubResource("CapsuleShape2D_dewec")
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_yoq75")
 disabled = true
 
 [node name="InputComponent" type="Node" parent="CharacterBody2D" unique_id=1848018490]
