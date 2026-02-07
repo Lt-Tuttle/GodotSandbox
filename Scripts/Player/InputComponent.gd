@@ -3,6 +3,7 @@ extends Node
 
 var raw_input: Vector2 = Vector2.ZERO
 var move_vector: Vector2 = Vector2.ZERO
+var last_move_direction: Vector2 = Vector2.DOWN
 var _was_horizontal_priority: bool = true
 
 func CheckInputs():
@@ -27,3 +28,6 @@ func CheckInputs():
 			else:
 				move_vector.y = raw_input.y
 				_was_horizontal_priority = false
+	
+	if move_vector != Vector2.ZERO:
+		last_move_direction = move_vector
