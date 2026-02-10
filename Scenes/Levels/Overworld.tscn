@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bf6q76bjuad0j"]
+
+[ext_resource type="PackedScene" uid="uid://bri27qbdftd3y" path="res://Scenes/Player/Player.tscn" id="1_hl7fj"]
+
+[node name="Overworld" type="Node2D" unique_id=1946542578]
+
+[node name="Player" parent="." unique_id=787871135 instance=ExtResource("1_hl7fj")]
+position = Vector2(480, 332)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=33332155]

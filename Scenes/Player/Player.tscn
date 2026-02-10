@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bri27qbdftd3y"]
+
+[ext_resource type="Script" uid="uid://b8p6h6ts3wion" path="res://Scripts/Player/Player.gd" id="1_kyqiw"]
+[ext_resource type="Script" uid="uid://b3h0pvc0mqwpf" path="res://Scripts/Player/MovementComponent.gd" id="3_gntrk"]
+[ext_resource type="Script" uid="uid://bluhd5yrsquep" path="res://Scripts/Player/InputComponent.gd" id="4_dewec"]
+[ext_resource type="Script" uid="uid://di2cm6qpf3yon" path="res://Scripts/Player/AnimationComponent.gd" id="7_52ee3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yoq75"]
+size = Vector2(6, 10)
+
+[node name="Player" type="Node2D" unique_id=787871135]
+z_index = 2
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1826747499]
+collision_layer = 3
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_kyqiw")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=704491435]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1207192820]
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1254878915]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1185868346]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_yoq75")
+
+[node name="InputComponent" type="Node" parent="CharacterBody2D" unique_id=1848018490]
+script = ExtResource("4_dewec")
+metadata/_custom_type_script = "uid://bluhd5yrsquep"
+
+[node name="MovementComponent" type="Node" parent="CharacterBody2D" unique_id=1750784377]
+script = ExtResource("3_gntrk")
+metadata/_custom_type_script = "uid://b3h0pvc0mqwpf"
+
+[node name="AnimationComponent" type="Node" parent="CharacterBody2D" unique_id=1390371860]
+script = ExtResource("7_52ee3")
+metadata/_custom_type_script = "uid://di2cm6qpf3yon"
