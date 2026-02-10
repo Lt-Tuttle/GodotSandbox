@@ -11,6 +11,10 @@
 [ext_resource type="Script" uid="uid://di2cm6qpf3yon" path="res://Scripts/Player/AnimationComponent.gd" id="7_52ee3"]
 [ext_resource type="Texture2D" uid="uid://cxc5o7dnpr4oy" path="res://Assets/Entities/Characters/Body_A/Animations/Run_Base/Run_Up-Sheet.png" id="7_yoq75"]
 
+[sub_resource type="Animation" id="Animation_glx4g"]
+resource_name = "AttackDown"
+step = 0.125
+
 [sub_resource type="Animation" id="Animation_xhfnw"]
 resource_name = "IdleDown"
 length = 0.75
@@ -388,6 +392,7 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kne1u"]
 _data = {
+&"AttackDown": SubResource("Animation_glx4g"),
 &"IdleDown": SubResource("Animation_xhfnw"),
 &"IdleSide": SubResource("Animation_nn08x"),
 &"IdleUp": SubResource("Animation_5ixxa"),
@@ -414,7 +419,7 @@ texture = ExtResource("1_kne1u")
 hframes = 4
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1254878915]
-zoom = Vector2(3, 3)
+zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1017765088]
@@ -425,7 +430,6 @@ autoplay = &"RunSide"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1185868346]
 position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_yoq75")
-disabled = false
 
 [node name="InputComponent" type="Node" parent="CharacterBody2D" unique_id=1848018490]
 script = ExtResource("4_dewec")
