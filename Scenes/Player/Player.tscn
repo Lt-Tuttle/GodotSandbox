@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://be0xraqocmml8" path="res://Assets/Player/PlayerCrouchTransition.png" id="5_esmjy"]
 [ext_resource type="Texture2D" uid="uid://c2j1al2uqcg6x" path="res://Assets/Player/PlayerCrouchWalk.png" id="6_esmjy"]
 [ext_resource type="Texture2D" uid="uid://b7l1pvb4trddc" path="res://Assets/Player/PlayerRoll.png" id="7_0kmp4"]
-[ext_resource type="Script" uid="uid://di2cm6qpf3yon" path="res://Scripts/Player/AnimationComponent.gd" id="7_52ee3"]
 [ext_resource type="Texture2D" uid="uid://bsgpcex32rovr" path="res://Assets/Player/PlayerDash.png" id="8_1e6p3"]
 [ext_resource type="Texture2D" uid="uid://de07spghdxnvt" path="res://Assets/Player/PlayerDeath.png" id="9_io2mu"]
 [ext_resource type="Texture2D" uid="uid://dpr1kxir5bf77" path="res://Assets/Player/PlayerTurnAround.png" id="11_6tu5v"]
@@ -25,6 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://7wqx2hokexxm" path="res://Assets/Player/PlayerWallClimbNoMovement.png" id="19_e5iqy"]
 [ext_resource type="Texture2D" uid="uid://b7jluuvjmalwf" path="res://Assets/Player/PlayerWallHang.png" id="20_8t5qx"]
 [ext_resource type="Texture2D" uid="uid://c3ae8ggt1ssh8" path="res://Assets/Player/PlayerWallSlide.png" id="21_8rd5p"]
+[ext_resource type="Script" uid="uid://cv8xgfhq08753" path="res://Scripts/State/StateMachine.gd" id="26_wwmao"]
+[ext_resource type="Script" uid="uid://da0s0m4re50i0" path="res://Scripts/Player/States/AirState.gd" id="27_7xdrn"]
+[ext_resource type="Script" uid="uid://b5ih4oepa5we4" path="res://Scripts/Player/States/IdleState.gd" id="28_wid83"]
+[ext_resource type="Script" uid="uid://cvepv4losx3oh" path="res://Scripts/Player/States/MoveState.gd" id="29_g7gci"]
 
 [sub_resource type="Animation" id="Animation_i5acl"]
 resource_name = "Attack"
@@ -246,26 +249,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/path = NodePath("Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.16666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
 }
 
 [sub_resource type="Animation" id="Animation_wwmao"]
@@ -489,26 +492,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/path = NodePath("Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
 }
 
 [sub_resource type="Animation" id="Animation_t26db"]
@@ -650,26 +653,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/path = NodePath("Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.26666668),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
 }
 
 [sub_resource type="Animation" id="Animation_8t5qx"]
@@ -1075,6 +1078,7 @@ libraries/ = SubResource("AnimationLibrary_fk5o5")
 autoplay = &"Idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="CharacterBody2D" unique_id=1910706741]
+active = false
 tree_root = SubResource("AnimationNodeStateMachine_8t5qx")
 anim_player = NodePath("../AnimationPlayer")
 
@@ -1091,10 +1095,20 @@ shape = SubResource("RectangleShape2D_825xp")
 script = ExtResource("4_dewec")
 metadata/_custom_type_script = "uid://bluhd5yrsquep"
 
-[node name="MovementComponent" type="Node" parent="CharacterBody2D" unique_id=1750784377]
+[node name="MovementComponent" type="Node" parent="CharacterBody2D" unique_id=498294154]
 script = ExtResource("3_gntrk")
 metadata/_custom_type_script = "uid://b3h0pvc0mqwpf"
 
-[node name="AnimationComponent" type="Node" parent="CharacterBody2D" unique_id=1390371860]
-script = ExtResource("7_52ee3")
-metadata/_custom_type_script = "uid://di2cm6qpf3yon"
+[node name="StateMachine" type="Node" parent="CharacterBody2D" unique_id=1279015830]
+script = ExtResource("26_wwmao")
+initial_state = NodePath("IdleState")
+metadata/_custom_type_script = "uid://cv8xgfhq08753"
+
+[node name="AirState" type="Node" parent="CharacterBody2D/StateMachine" unique_id=1635279839]
+script = ExtResource("27_7xdrn")
+
+[node name="IdleState" type="Node" parent="CharacterBody2D/StateMachine" unique_id=1093025783]
+script = ExtResource("28_wid83")
+
+[node name="MoveState" type="Node" parent="CharacterBody2D/StateMachine" unique_id=858986956]
+script = ExtResource("29_g7gci")
