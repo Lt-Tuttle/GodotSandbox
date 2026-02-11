@@ -20,11 +20,10 @@ func physics_update(delta: float) -> void:
 		return
 		
 	movement_component.HandleMovement(input_component, delta)
-	player.move_and_slide()
 	
 	if playback:
 		var dir = input_component.input_horizontal
 		if dir != 0 and sign(dir) != sign(player.velocity.x) and abs(player.velocity.x) > 100:
-			playback.travel("Turnaround")
+			playback.travel("TurnAround")
 		else:
 			pass

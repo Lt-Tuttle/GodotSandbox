@@ -11,11 +11,10 @@ func physics_update(delta: float) -> void:
 	input_component.CheckInputs()
 	
 	movement_component.HandleMovement(input_component, delta)
-	player.move_and_slide()
 	
 	# Animation logic for Jump Peak
 	if playback and abs(player.velocity.y) < 50:
-		playback.travel("Jump_Peak")
+		playback.travel("JumpPeak")
 	
 	if player.is_on_floor():
 		if input_component.input_horizontal == 0:
