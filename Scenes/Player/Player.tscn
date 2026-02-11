@@ -939,12 +939,116 @@ _data = {
 &"WallSlide": SubResource("Animation_g7gci")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8t5qx"]
+animation = &"Attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8rd5p"]
+animation = &"Crouch"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wwmao"]
+animation = &"CrouchTransition"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7xdrn"]
+animation = &"CrouchWalk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wid83"]
+animation = &"Fall"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e5iqy"]
 animation = &"Idle"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r6t50"]
+animation = &"Jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6rswy"]
+animation = &"JumpPeak"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lw74r"]
+animation = &"Roll"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g7gci"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jbjyn"]
+animation = &"TurnAround"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e5iqy"]
+advance_expression = "abs(body.velocity.x) > 0.1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8t5qx"]
+advance_expression = "abs(body.velocity.x) < 0.1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8rd5p"]
+advance_expression = "input.jump_pressed and !body.is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wwmao"]
+advance_mode = 2
+advance_expression = "body.velocity.y > -50	"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7xdrn"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "body.velocity.y > 0	"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wid83"]
+advance_mode = 2
+advance_expression = "body.is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g7gci"]
+advance_mode = 2
+advance_expression = "body.is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r6t50"]
+advance_expression = "input.jump_pressed and !body.is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6rswy"]
+advance_mode = 2
+advance_expression = "(input.input_horizontal < 0 && body.velosity.x > 0) ||
+(input.input_horizontal > 0 && body.velosity.x < 0)"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jbjyn"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "abs(body.velocity.x) > 0 "
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lw74r"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "body.velosity.x = 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tf3ct"]
+advance_mode = 2
+advance_expression = "input.jump_pressed and !body.is_on_floor()"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_to4uw"]
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8t5qx"]
+states/Attack/node = SubResource("AnimationNodeAnimation_8t5qx")
+states/Attack/position = Vector2(804, 272)
+states/Crouch/node = SubResource("AnimationNodeAnimation_8rd5p")
+states/Crouch/position = Vector2(127, 337)
+states/CrouchTransition/node = SubResource("AnimationNodeAnimation_wwmao")
+states/CrouchTransition/position = Vector2(127, 272)
+states/CrouchWalk/node = SubResource("AnimationNodeAnimation_7xdrn")
+states/CrouchWalk/position = Vector2(127, 411)
+states/End/position = Vector2(1130, 40)
+states/Fall/node = SubResource("AnimationNodeAnimation_wid83")
+states/Fall/position = Vector2(778, 40)
 states/Idle/node = SubResource("AnimationNodeAnimation_e5iqy")
-states/Idle/position = Vector2(568, 197)
+states/Idle/position = Vector2(255, 156)
+states/Jump/node = SubResource("AnimationNodeAnimation_r6t50")
+states/Jump/position = Vector2(403, 40)
+states/JumpPeak/node = SubResource("AnimationNodeAnimation_6rswy")
+states/JumpPeak/position = Vector2(593, 40)
+states/Roll/node = SubResource("AnimationNodeAnimation_lw74r")
+states/Roll/position = Vector2(804, 337)
+states/Run/node = SubResource("AnimationNodeAnimation_g7gci")
+states/Run/position = Vector2(764, 156)
+states/Start/position = Vector2(70, 40)
+states/TurnAround/node = SubResource("AnimationNodeAnimation_jbjyn")
+states/TurnAround/position = Vector2(529, 259)
+transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_e5iqy"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_8t5qx"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_8rd5p"), "Jump", "JumpPeak", SubResource("AnimationNodeStateMachineTransition_wwmao"), "JumpPeak", "Fall", SubResource("AnimationNodeStateMachineTransition_7xdrn"), "Fall", "Run", SubResource("AnimationNodeStateMachineTransition_wid83"), "Fall", "Idle", SubResource("AnimationNodeStateMachineTransition_g7gci"), "Run", "Jump", SubResource("AnimationNodeStateMachineTransition_r6t50"), "Run", "TurnAround", SubResource("AnimationNodeStateMachineTransition_6rswy"), "TurnAround", "Run", SubResource("AnimationNodeStateMachineTransition_jbjyn"), "TurnAround", "Idle", SubResource("AnimationNodeStateMachineTransition_lw74r"), "TurnAround", "Jump", SubResource("AnimationNodeStateMachineTransition_tf3ct"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_to4uw")]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_825xp"]
 size = Vector2(8, 26)

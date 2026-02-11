@@ -1,24 +1,14 @@
 class_name AnimationComponent
 extends Node
 
-func HandleAnimation(animation: AnimationPlayer, input: InputComponent, sprite: Sprite2D, body: CharacterBody2D):
+func HandleAnimation(tree: AnimationTree, input: InputComponent, sprite: Sprite2D, body: CharacterBody2D):
 	var dir = input.input_horizontal
 	
-	# Handle flipping
+	# Handle flipping (Visual only, doesn't affect logic usually)
 	if dir != 0:
 		sprite.flip_h = dir < 0
 	
-	# Handle Animations
-	if body.is_on_floor():
-		if dir != 0:
-			animation.play("Run")
-		else:
-			animation.play("Idle")
-	else:
-		if body.velocity.y < 0:
-			if body.velocity.y > -100: # Near peak
-				animation.play("JumpPeak")
-			else:
-				animation.play("Jump")
-		elif body.velocity.y > 0:
-			animation.play("Fall")
+	# The AnimationTree handles all logic via "Advance Expressions" checking velocity and input.
+	# We no longer need to manually "Travel" in code.
+	# The setup instructions for the Tree will be provided in the walkthrough.
+	pass
