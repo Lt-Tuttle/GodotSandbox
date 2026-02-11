@@ -1,4 +1,3 @@
-# AirState.gd
 extends PlayerState
 
 func enter(msg := {}) -> void:
@@ -9,10 +8,8 @@ func enter(msg := {}) -> void:
 		if playback: playback.travel("Fall")
 
 func physics_update(delta: float) -> void:
-	# Horizontal movement in air
 	input_component.CheckInputs()
 	
-	# HandleMovement applies Gravity and Air Control if configured
 	movement_component.HandleMovement(input_component, delta)
 	player.move_and_slide()
 	

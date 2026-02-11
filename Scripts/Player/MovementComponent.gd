@@ -16,18 +16,13 @@ func HandleMovement(input: InputComponent, delta: float):
 	if not body:
 		return
 
-	# Add the gravity.
 	if not body.is_on_floor():
 		body.velocity.y += gravity * delta
 
-	# Handle Jump.
 	if input.jump_pressed and body.is_on_floor():
 		body.velocity.y = jump_velocity
 
-	# Get the input direction and handle the movement/deceleration.
 	var direction = input.input_horizontal
-	
-	# Choose acceleration/friction based on state
 	var acc = acceleration if body.is_on_floor() else air_acceleration
 	var fric = friction if body.is_on_floor() else air_friction
 	
