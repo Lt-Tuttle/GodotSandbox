@@ -973,55 +973,59 @@ animation = &"Run"
 animation = &"TurnAround"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e5iqy"]
-advance_expression = "abs(body.velocity.x) > 0.1"
+advance_mode = 2
+advance_expression = "abs(velocity.x) > 0.1"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8t5qx"]
-advance_expression = "abs(body.velocity.x) < 0.1"
+advance_mode = 2
+advance_expression = "abs(velocity.x) < 0.1"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8rd5p"]
-advance_expression = "input.jump_pressed and !body.is_on_floor()"
+advance_mode = 2
+advance_expression = "input_component.jump_pressed and !is_on_floor_value"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wwmao"]
 advance_mode = 2
-advance_expression = "body.velocity.y > -50	"
+advance_expression = "velocity.y > -50"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7xdrn"]
 switch_mode = 2
 advance_mode = 2
-advance_expression = "body.velocity.y > 0	"
+advance_expression = "velocity.y > 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wid83"]
 advance_mode = 2
-advance_expression = "body.is_on_floor()"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g7gci"]
-advance_mode = 2
-advance_expression = "body.is_on_floor()"
+advance_expression = "is_on_floor_value"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r6t50"]
-advance_expression = "input.jump_pressed and !body.is_on_floor()"
+advance_mode = 2
+advance_expression = "input_component.jump_pressed and !is_on_floor_value"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6rswy"]
 advance_mode = 2
-advance_expression = "(input.input_horizontal < 0 && body.velosity.x > 0) ||
-(input.input_horizontal > 0 && body.velosity.x < 0)"
+advance_expression = "(input_component.input_horizontal < 0 && velocity.x > 0) ||
+(input_component.input_horizontal > 0 && velocity.x < 0)"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jbjyn"]
 switch_mode = 2
 advance_mode = 2
-advance_expression = "abs(body.velocity.x) > 0 "
+advance_expression = "abs(velocity.x) > 0 "
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lw74r"]
 switch_mode = 2
 advance_mode = 2
-advance_expression = "body.velosity.x = 0"
+advance_expression = "velocity.x == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tf3ct"]
 advance_mode = 2
-advance_expression = "input.jump_pressed and !body.is_on_floor()"
+advance_expression = "input_component.jump_pressed and !is_on_floor_value"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_to4uw"]
 advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g7gci"]
+advance_mode = 2
+advance_expression = "is_on_floor_value"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8t5qx"]
 states/Attack/node = SubResource("AnimationNodeAnimation_8t5qx")
@@ -1040,15 +1044,15 @@ states/Idle/position = Vector2(255, 156)
 states/Jump/node = SubResource("AnimationNodeAnimation_r6t50")
 states/Jump/position = Vector2(403, 40)
 states/JumpPeak/node = SubResource("AnimationNodeAnimation_6rswy")
-states/JumpPeak/position = Vector2(593, 40)
+states/JumpPeak/position = Vector2(579, 20)
 states/Roll/node = SubResource("AnimationNodeAnimation_lw74r")
 states/Roll/position = Vector2(804, 337)
 states/Run/node = SubResource("AnimationNodeAnimation_g7gci")
 states/Run/position = Vector2(764, 156)
 states/Start/position = Vector2(70, 40)
 states/TurnAround/node = SubResource("AnimationNodeAnimation_jbjyn")
-states/TurnAround/position = Vector2(529, 259)
-transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_e5iqy"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_8t5qx"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_8rd5p"), "Jump", "JumpPeak", SubResource("AnimationNodeStateMachineTransition_wwmao"), "JumpPeak", "Fall", SubResource("AnimationNodeStateMachineTransition_7xdrn"), "Fall", "Run", SubResource("AnimationNodeStateMachineTransition_wid83"), "Fall", "Idle", SubResource("AnimationNodeStateMachineTransition_g7gci"), "Run", "Jump", SubResource("AnimationNodeStateMachineTransition_r6t50"), "Run", "TurnAround", SubResource("AnimationNodeStateMachineTransition_6rswy"), "TurnAround", "Run", SubResource("AnimationNodeStateMachineTransition_jbjyn"), "TurnAround", "Idle", SubResource("AnimationNodeStateMachineTransition_lw74r"), "TurnAround", "Jump", SubResource("AnimationNodeStateMachineTransition_tf3ct"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_to4uw")]
+states/TurnAround/position = Vector2(518, 424)
+transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_e5iqy"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_8t5qx"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_8rd5p"), "Jump", "JumpPeak", SubResource("AnimationNodeStateMachineTransition_wwmao"), "JumpPeak", "Fall", SubResource("AnimationNodeStateMachineTransition_7xdrn"), "Fall", "Run", SubResource("AnimationNodeStateMachineTransition_wid83"), "Run", "Jump", SubResource("AnimationNodeStateMachineTransition_r6t50"), "Run", "TurnAround", SubResource("AnimationNodeStateMachineTransition_6rswy"), "TurnAround", "Run", SubResource("AnimationNodeStateMachineTransition_jbjyn"), "TurnAround", "Idle", SubResource("AnimationNodeStateMachineTransition_lw74r"), "TurnAround", "Jump", SubResource("AnimationNodeStateMachineTransition_tf3ct"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_to4uw"), "JumpPeak", "Run", SubResource("AnimationNodeStateMachineTransition_g7gci")]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_825xp"]
 size = Vector2(8, 26)
