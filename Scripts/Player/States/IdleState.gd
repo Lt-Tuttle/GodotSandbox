@@ -4,9 +4,7 @@ func enter(_msg := {}) -> void:
 	player.velocity = Vector2.ZERO
 	if playback:
 		playback.travel("Idle")
-	player.velocity = Vector2.ZERO
-	if playback:
-		playback.travel("Idle")
+
 
 func physics_update(_delta: float) -> void:
 	input_component.CheckInputs()

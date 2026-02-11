@@ -36,10 +36,3 @@ func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
 	state = get_node(target_state_name)
 	state.enter(msg)
 	emit_signal("transitioned", state.name)
-	if not has_node(target_state_name):
-		return
-
-	state.exit()
-	state = get_node(target_state_name)
-	state.enter(msg)
-	emit_signal("transitioned", state.name)

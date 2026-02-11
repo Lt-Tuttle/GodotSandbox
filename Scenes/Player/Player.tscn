@@ -249,26 +249,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/path = NodePath("Sprite2D:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.16666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
 }
 
 [sub_resource type="Animation" id="Animation_wwmao"]
@@ -492,26 +492,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/path = NodePath("Sprite2D:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
 }
 
 [sub_resource type="Animation" id="Animation_t26db"]
@@ -653,26 +653,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/path = NodePath("Sprite2D:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.26666668),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
 }
 
 [sub_resource type="Animation" id="Animation_8t5qx"]
@@ -976,59 +976,46 @@ animation = &"Run"
 animation = &"TurnAround"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e5iqy"]
-advance_mode = 2
-advance_expression = "abs(velocity.x) > 0.1"
+advance_mode = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8t5qx"]
-advance_mode = 2
-advance_expression = "abs(velocity.x) < 0.1"
+advance_mode = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8rd5p"]
-advance_mode = 2
-advance_expression = "input_component.jump_pressed and !is_on_floor_value"
+advance_mode = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wwmao"]
-advance_mode = 2
-advance_expression = "velocity.y > -50"
+advance_mode = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7xdrn"]
 switch_mode = 2
 advance_mode = 2
-advance_expression = "velocity.y > 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wid83"]
-advance_mode = 2
-advance_expression = "is_on_floor_value"
+advance_mode = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r6t50"]
-advance_mode = 2
-advance_expression = "input_component.jump_pressed and !is_on_floor_value"
+advance_mode = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6rswy"]
-advance_mode = 2
-advance_expression = "(input_component.input_horizontal < 0 && velocity.x > 0) ||
-(input_component.input_horizontal > 0 && velocity.x < 0)"
+advance_mode = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jbjyn"]
 switch_mode = 2
 advance_mode = 2
-advance_expression = "abs(velocity.x) > 0 "
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lw74r"]
 switch_mode = 2
 advance_mode = 2
-advance_expression = "velocity.x == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tf3ct"]
 advance_mode = 2
-advance_expression = "input_component.jump_pressed and !is_on_floor_value"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_to4uw"]
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g7gci"]
 advance_mode = 2
-advance_expression = "is_on_floor_value"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8t5qx"]
 states/Attack/node = SubResource("AnimationNodeAnimation_8t5qx")
@@ -1041,7 +1028,7 @@ states/CrouchWalk/node = SubResource("AnimationNodeAnimation_7xdrn")
 states/CrouchWalk/position = Vector2(127, 411)
 states/End/position = Vector2(1130, 40)
 states/Fall/node = SubResource("AnimationNodeAnimation_wid83")
-states/Fall/position = Vector2(778, 40)
+states/Fall/position = Vector2(778, 40.22222)
 states/Idle/node = SubResource("AnimationNodeAnimation_e5iqy")
 states/Idle/position = Vector2(255, 156)
 states/Jump/node = SubResource("AnimationNodeAnimation_r6t50")
@@ -1056,6 +1043,7 @@ states/Start/position = Vector2(70, 40)
 states/TurnAround/node = SubResource("AnimationNodeAnimation_jbjyn")
 states/TurnAround/position = Vector2(518, 424)
 transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_e5iqy"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_8t5qx"), "Idle", "Jump", SubResource("AnimationNodeStateMachineTransition_8rd5p"), "Jump", "JumpPeak", SubResource("AnimationNodeStateMachineTransition_wwmao"), "JumpPeak", "Fall", SubResource("AnimationNodeStateMachineTransition_7xdrn"), "Fall", "Run", SubResource("AnimationNodeStateMachineTransition_wid83"), "Run", "Jump", SubResource("AnimationNodeStateMachineTransition_r6t50"), "Run", "TurnAround", SubResource("AnimationNodeStateMachineTransition_6rswy"), "TurnAround", "Run", SubResource("AnimationNodeStateMachineTransition_jbjyn"), "TurnAround", "Idle", SubResource("AnimationNodeStateMachineTransition_lw74r"), "TurnAround", "Jump", SubResource("AnimationNodeStateMachineTransition_tf3ct"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_to4uw"), "JumpPeak", "Run", SubResource("AnimationNodeStateMachineTransition_g7gci")]
+graph_offset = Vector2(-212.71606, -10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_825xp"]
 size = Vector2(8, 26)
@@ -1063,10 +1051,11 @@ size = Vector2(8, 26)
 [node name="Player" type="Node2D" unique_id=787871135]
 z_index = 2
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1826747499]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1826747499 node_paths=PackedStringArray("state_machine")]
 collision_layer = 2
 floor_snap_length = 32.0
 script = ExtResource("1_kyqiw")
+state_machine = NodePath("StateMachine")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=704491435]
 position = Vector2(5, -40)
