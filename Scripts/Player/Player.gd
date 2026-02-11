@@ -18,6 +18,7 @@ func _ready():
 		state_machine = find_child("StateMachine")
 
 func _physics_process(delta):
+	input_component.CheckInputs()
 	state_machine.physics_update(delta)
 	move_and_slide()
 	is_on_floor_value = is_on_floor()
