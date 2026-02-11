@@ -1,13 +1,13 @@
 class_name MovementComponent
 extends Node
 
-@export var speed: float = 100
-@export var acceleration: float = 800
-@export var friction: float = 2000
-@export var jump_velocity: float = -300.0
+@export var speed: float = 160
+@export var acceleration: float = 1600
+@export var friction: float = 1600
+@export var jump_velocity: float = -320.0
 
-@export var air_acceleration: float = 400
-@export var air_friction: float = 500
+@export var air_acceleration: float = 800
+@export var air_friction: float = 1600
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
