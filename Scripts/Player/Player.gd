@@ -17,5 +17,6 @@ func _ready():
 	if not state_machine:
 		state_machine = find_child("StateMachine")
 
-func _physics_process(delta):
+func _physics_process(_delta):
+	move_and_slide()
 	is_on_floor_value = is_on_floor()
