@@ -13,8 +13,6 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Air", {do_jump = true})
 		return
 		
-	input_component.CheckInputs()
-	
 	if input_component.input_horizontal == 0:
 		state_machine.transition_to("Idle")
 		return

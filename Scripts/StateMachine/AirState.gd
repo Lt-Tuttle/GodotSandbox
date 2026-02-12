@@ -8,8 +8,6 @@ func enter(msg := {}) -> void:
 		if playback: playback.travel("Fall")
 
 func physics_update(delta: float) -> void:
-	input_component.CheckInputs()
-	
 	movement_component.HandleMovement(input_component, delta)
 	
 	# Animation logic for Jump Peak

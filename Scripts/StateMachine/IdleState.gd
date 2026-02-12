@@ -7,8 +7,6 @@ func enter(_msg := {}) -> void:
 
 
 func physics_update(_delta: float) -> void:
-	input_component.CheckInputs()
-	
 	if not player.is_on_floor():
 		state_machine.transition_to("Air")
 		return
