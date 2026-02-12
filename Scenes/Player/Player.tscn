@@ -29,6 +29,7 @@
 [ext_resource type="Script" uid="uid://bpn1clb0vda3q" path="res://Scripts/Player/States/StateMoving.gd" id="27_wid83"]
 [ext_resource type="Script" uid="uid://c330frbttrpdr" path="res://Scripts/Player/States/StateJumping.gd" id="28_g7gci"]
 [ext_resource type="Script" uid="uid://bwudewyy16js1" path="res://Scripts/Player/States/StateAttacking.gd" id="29_r6t50"]
+[ext_resource type="Script" uid="uid://dn0pnr5hry6bg" path="res://Scripts/Player/States/StateGround.gd" id="30_wid83"]
 
 [sub_resource type="Animation" id="Animation_i5acl"]
 resource_name = "Attack"
@@ -999,3 +1000,6 @@ state_machine = NodePath("..")
 [node name="StateAttacking" type="Node" parent="StateMachine" unique_id=2035363194 node_paths=PackedStringArray("state_machine")]
 script = ExtResource("29_r6t50")
 state_machine = NodePath("..")
+
+[node name="StateGround" type="Node" parent="StateMachine" unique_id=1056832567]
+script = ExtResource("30_wid83")

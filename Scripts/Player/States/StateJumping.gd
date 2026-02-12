@@ -5,7 +5,12 @@ extends Node
 
 func enter() -> void:
 	state_machine.animation_player.play("Jump")
-	state_machine.set_crouching_collision(false) # Reset crouch just in case
+	# We don't reset collision here, handled by animation usually or not needed if we are in air.
+	# But if we were crouched, we might want to ensure we aren't? 
+	# The requirement says StateMachine has var is_crouching.
+	# If we jump, we probably want to uncrouch?
+	if state_machine.is_crouching:
+		state_machine.is_crouching = false
 
 func exit() -> void:
 	pass
@@ -31,12 +36,15 @@ func update(_delta: float) -> void:
 		return
 		
 	# Attack in air? (Optional, assuming allowed for now)
-	if state_machine.input_component.attack_pressed:
+	if state_machine.input_component.consume_attack():
 		state_machine.change_state("StateAttacking")
 		return
 
 	state_machine.update_facing_direction()
 
 func physics_update(delta: float) -> void:
-	state_machine.movement_component.HandleMovement(delta)
+	# Air control
+	var input_dir = state_machine.input_component.input_horizontal
+	state_machine.movement_component.handle_velocity(input_dir, delta)
+	state_machine.movement_component.apply_gravity(delta)
 	state_machine.body.move_and_slide()
