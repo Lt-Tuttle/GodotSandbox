@@ -1,0 +1,20 @@
+class_name StateAttacking
+extends Node
+
+@export var state_machine: StateMachine
+
+func enter() -> void:
+	state_machine.animation_player.play("Attack")
+
+func exit() -> void:
+	pass
+
+func update(_delta: float) -> void:
+	# Wait for animation to finish
+	if not state_machine.animation_player.is_playing() or state_machine.animation_player.current_animation != "Attack":
+		state_machine.change_state("StateIdle")
+		return
+
+func physics_update(delta: float) -> void:
+	state_machine.movement_component.HandleMovement(delta)
+	state_machine.body.move_and_slide()

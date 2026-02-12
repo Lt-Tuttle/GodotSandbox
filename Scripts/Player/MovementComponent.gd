@@ -2,43 +2,72 @@ class_name MovementComponent
 extends Node
 
 @onready var body: CharacterBody2D = get_parent()
-@onready var animation_player: AnimationPlayer = body.get_node("AnimationPlayer")
-@onready var input_component: InputComponent = body.get_node("InputComponent")
-@onready var movement_component: MovementComponent = body.get_node("MovementComponent")
-@onready var sprite_2d: Sprite2D = body.get_node("Sprite2D")
+@onready var input_component: Node = body.get_node("InputComponent")
 
-@export var speed: float = 160
-@export var acceleration: float = 800
-@export var friction: float = 600
-@export var jump_velocity: float = -400
-@export var air_acceleration: float = 400
-@export var air_friction: float = 200
+@export_category("Speed & Acceleration")
+@export var base_speed: float = 160.0
+@export var crouch_speed_multiplier: float = 0.5
+@export var acceleration: float = 800.0
+@export var friction: float = 600.0
+@export var air_acceleration: float = 400.0
+@export var air_friction: float = 200.0
 
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var is_crouching = false
+@export_category("Jumping & Gravity")
+@export var jump_velocity: float = -400.0
+@export var gravity: float = 1000.0
+@export var max_fall_speed: float = 400.0
+@export var coyote_time: float = 0.1
+@export var jump_peak_gravity_mult: float = 0.5 # Lowers gravity at jump apex
 
-func HandleMovement(input: InputComponent, delta: float):
-	if not body:
+var coyote_timer: float = 0.0
+var is_crouching: bool = false
+
+# Calculated once when the node is ready
+@onready var jump_peak_threshold: float = abs(jump_velocity * 0.1)
+
+func HandleMovement(delta: float) -> void:
+	if not body or not input_component:
 		return
 
-	if not body.is_on_floor():
-		body.velocity.y += gravity * delta
-
-	if input.jump_pressed and body.is_on_floor():
-		body.velocity.y = jump_velocity
-
-	var direction = input.input_horizontal
-	var acc = acceleration if body.is_on_floor() else air_acceleration
-	var fric = friction if body.is_on_floor() else air_friction
-	
-	if direction:
-		body.velocity.x = move_toward(body.velocity.x, direction * speed, acc * delta)
+	# 1. Update Coyote Timer
+	if body.is_on_floor():
+		coyote_timer = coyote_time
 	else:
-		body.velocity.x = move_toward(body.velocity.x, 0, fric * delta)
+		coyote_timer -= delta
 
+	# 2. Handle Jumping
+	# We check if jump is pressed AND we have coyote time remaining.
+	if input_component.jump_pressed and coyote_timer > 0.0:
+		body.velocity.y = jump_velocity
+		coyote_timer = 0.0 # Consume the timer so we can't double jump
+        
+	# 3. Handle Gravity
+	if not body.is_on_floor():
+		var current_gravity = gravity
+        
+		# Apply floaty apex: if we are moving slowly vertically (at the peak of the jump)
+		if abs(body.velocity.y) < jump_peak_threshold:
+			current_gravity *= jump_peak_gravity_mult
+            
+		body.velocity.y += current_gravity * delta
+		body.velocity.y = min(body.velocity.y, max_fall_speed)
+
+	# 4. Handle Crouching
+	# It is safer to toggle a boolean state rather than permanently mutating the `speed` variable.
 	if input_component.crouch_pressed and not is_crouching:
-		speed = speed / 2
 		is_crouching = true
 	elif input_component.crouch_released and is_crouching:
-		speed = speed * 2
 		is_crouching = false
+
+	# 5. Handle Horizontal Movement
+	var direction: float = input_component.input_horizontal
+	var target_speed: float = base_speed * (crouch_speed_multiplier if is_crouching else 1.0)
+    
+	var acc: float = acceleration if body.is_on_floor() else air_acceleration
+	var fric: float = friction if body.is_on_floor() else air_friction
+    
+	if direction != 0.0:
+		body.velocity.x = move_toward(body.velocity.x, direction * target_speed, acc * delta)
+	else:
+		# Decelerate when no input is provided
+		body.velocity.x = move_toward(body.velocity.x, 0.0, fric * delta)

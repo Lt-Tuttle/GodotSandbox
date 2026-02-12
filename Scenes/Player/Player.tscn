@@ -24,7 +24,11 @@
 [ext_resource type="Texture2D" uid="uid://7wqx2hokexxm" path="res://Assets/Player/PlayerWallClimbNoMovement.png" id="19_e5iqy"]
 [ext_resource type="Texture2D" uid="uid://b7jluuvjmalwf" path="res://Assets/Player/PlayerWallHang.png" id="20_8t5qx"]
 [ext_resource type="Texture2D" uid="uid://c3ae8ggt1ssh8" path="res://Assets/Player/PlayerWallSlide.png" id="21_8rd5p"]
+[ext_resource type="Script" uid="uid://c18te3o0o4mab" path="res://Scripts/Player/States/StateIdle.gd" id="26_7xdrn"]
 [ext_resource type="Script" uid="uid://cv8xgfhq08753" path="res://Scripts/Player/StateMachine.gd" id="26_wwmao"]
+[ext_resource type="Script" uid="uid://bpn1clb0vda3q" path="res://Scripts/Player/States/StateMoving.gd" id="27_wid83"]
+[ext_resource type="Script" uid="uid://c330frbttrpdr" path="res://Scripts/Player/States/StateJumping.gd" id="28_g7gci"]
+[ext_resource type="Script" uid="uid://bwudewyy16js1" path="res://Scripts/Player/States/StateAttacking.gd" id="29_r6t50"]
 
 [sub_resource type="Animation" id="Animation_i5acl"]
 resource_name = "Attack"
@@ -943,7 +947,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_825xp"]
-size = Vector2(8, 26)
+size = Vector2(8, 28)
 
 [node name="Player" type="CharacterBody2D" unique_id=1826747499]
 collision_layer = 2
@@ -965,8 +969,7 @@ zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1185868346]
-position = Vector2(0, -6.5)
-scale = Vector2(1, 0.5)
+position = Vector2(0, -14)
 shape = SubResource("RectangleShape2D_825xp")
 
 [node name="InputComponent" type="Node" parent="." unique_id=1848018490]
@@ -980,3 +983,19 @@ metadata/_custom_type_script = "uid://b3h0pvc0mqwpf"
 [node name="StateMachine" type="Node" parent="." unique_id=1279015830]
 script = ExtResource("26_wwmao")
 metadata/_custom_type_script = "uid://cv8xgfhq08753"
+
+[node name="StateIdle" type="Node" parent="StateMachine" unique_id=586124718 node_paths=PackedStringArray("state_machine")]
+script = ExtResource("26_7xdrn")
+state_machine = NodePath("..")
+
+[node name="StateMoving" type="Node" parent="StateMachine" unique_id=283517804 node_paths=PackedStringArray("state_machine")]
+script = ExtResource("27_wid83")
+state_machine = NodePath("..")
+
+[node name="StateJumping" type="Node" parent="StateMachine" unique_id=1573825621 node_paths=PackedStringArray("state_machine")]
+script = ExtResource("28_g7gci")
+state_machine = NodePath("..")
+
+[node name="StateAttacking" type="Node" parent="StateMachine" unique_id=2035363194 node_paths=PackedStringArray("state_machine")]
+script = ExtResource("29_r6t50")
+state_machine = NodePath("..")
