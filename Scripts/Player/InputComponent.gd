@@ -4,7 +4,6 @@ extends Node
 var input_horizontal: float = 0.0
 var jump_pressed: bool = false
 var crouch_pressed: bool = false
-var crouch_released: bool = false
 var roll_pressed: bool = false
 var attack_pressed: bool = false
 var move_vector: Vector2 = Vector2.ZERO
@@ -16,17 +15,13 @@ func CheckInputs():
 	
 	if Input.is_action_just_pressed("Jump"):
 		jump_pressed = true
-	if Input.is_action_just_pressed("Crouch"):
-		crouch_pressed = true # Start crouching
-	if Input.is_action_just_released("Crouch"):
-		crouch_released = true
-		crouch_pressed = false # Stop crouching
 		
-	if Input.is_action_pressed("Crouch"): # Continuous check logic if needed, but the latching above helps transitions
+	if Input.is_action_just_pressed("Crouch"):
 		crouch_pressed = true
-	
+		
 	if Input.is_action_just_pressed("Roll"):
 		roll_pressed = true
+
 	if Input.is_action_just_pressed("Attack"):
 		attack_pressed = true
 		
@@ -50,8 +45,7 @@ func consume_roll() -> bool:
 	roll_pressed = false
 	return pressed
 
-func consume_crouch_trigger() -> bool: # For just_pressed logic if we need it
-	# Actually crouch is usually a state, so `crouch_pressed` boolean is fine to persist.
-	# But `crouch_released` might need consumption?
-	# Let's just keep crouch as a state variable for now, but `released` might need latching.
-	return false
+func consume_crouch() -> bool:
+	var pressed = crouch_pressed
+	crouch_pressed = false
+	return pressed

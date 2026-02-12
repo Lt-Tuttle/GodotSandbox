@@ -33,7 +33,8 @@
 
 [sub_resource type="Animation" id="Animation_i5acl"]
 resource_name = "Attack"
-length = 0.56666666
+length = 0.3
+step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -65,10 +66,22 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.4),
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.075, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_1e6p3"]
@@ -154,7 +167,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_0objx"]
 resource_name = "CrouchTransition"
-length = 0.15
+length = 0.05
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -557,6 +570,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_epg6k"]
 resource_name = "Roll"
@@ -950,6 +975,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_825xp"]
 size = Vector2(8, 28)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wid83"]
+radius = 20.0
+height = 44.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1826747499]
 collision_layer = 2
 floor_snap_length = 32.0
@@ -981,8 +1010,11 @@ metadata/_custom_type_script = "uid://bluhd5yrsquep"
 script = ExtResource("3_gntrk")
 metadata/_custom_type_script = "uid://b3h0pvc0mqwpf"
 
-[node name="StateMachine" type="Node" parent="." unique_id=1279015830]
+[node name="StateMachine" type="Node" parent="." unique_id=1279015830 node_paths=PackedStringArray("input_component", "movement_component", "current_state")]
 script = ExtResource("26_wwmao")
+input_component = NodePath("../InputComponent")
+movement_component = NodePath("../MovementComponent")
+current_state = NodePath("StateIdle")
 metadata/_custom_type_script = "uid://cv8xgfhq08753"
 
 [node name="StateIdle" type="Node" parent="StateMachine" unique_id=586124718 node_paths=PackedStringArray("state_machine")]
@@ -1001,5 +1033,15 @@ state_machine = NodePath("..")
 script = ExtResource("29_r6t50")
 state_machine = NodePath("..")
 
-[node name="StateGround" type="Node" parent="StateMachine" unique_id=1056832567]
+[node name="StateGround" type="Node" parent="StateMachine" unique_id=1056832567 node_paths=PackedStringArray("state_machine")]
 script = ExtResource("30_wid83")
+state_machine = NodePath("..")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1537216102]
+position = Vector2(45, -20)
+rotation = 1.5707964
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1915550594]
+shape = SubResource("CapsuleShape2D_wid83")

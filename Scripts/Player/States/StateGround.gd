@@ -10,22 +10,21 @@ func exit() -> void:
 	pass
 
 func update(_delta: float) -> void:
-	# 1. Handle Crouching
-	# Toggle state based on input.
+	# Crouch
 	if state_machine.input_component.crouch_pressed:
 		if not state_machine.is_crouching:
 			state_machine.is_crouching = true
-			# We don't handle collision shape here anymore (AnimationPlayer should do it)
-			# But if we did, it would be here.
-	elif state_machine.input_component.crouch_released: # Optional: if crouch is hold-to-crouch
-		# Depending on requirements, crouch might be toggle or hold.
-		# Original code suggested hold logic:
-		# "elif state_machine.input_component.crouch_released: state_machine.set_crouching_collision(false)"
-		# So we will implement hold-to-crouch logic here.
+			state_machine.body.collision_shape.scale = Vector2(1.0, state_machine.body.crouch_collision_shape_scale)
+			state_machine.body.collision_shape.position.y = state_machine.body.crouch_collision_shape_offset
+			state_machine.input_component.consume_crouch()
+			return
+			
 		if state_machine.is_crouching:
 			state_machine.is_crouching = false
-
-	# 2. Transitions
+			state_machine.body.collision_shape.scale = Vector2(1.0, state_machine.body.stand_collision_shape_scale)
+			state_machine.body.collision_shape.position.y = state_machine.body.stand_collision_shape_offset
+			state_machine.input_component.consume_crouch()
+			return
 	
 	# Jump
 	if state_machine.input_component.consume_jump():
@@ -38,9 +37,9 @@ func update(_delta: float) -> void:
 		state_machine.change_state("StateAttacking")
 		return
 
-	# Fall (if we walked off a ledge)
+	# Fall
 	if not state_machine.body.is_on_floor():
-		state_machine.change_state("StateJumping") # Or StateFall if it exists, reusing Jumping for now as per original code context
+		state_machine.change_state("StateJumping")
 		return
 
 	# Update Direction

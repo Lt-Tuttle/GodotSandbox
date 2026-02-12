@@ -16,9 +16,6 @@ func update(_delta: float) -> void:
 		return
 
 func physics_update(delta: float) -> void:
-	# FIX: Phantom Jump Bug
-	# We DO NOT call perform_jump() or HandleMovement() which had checks.
-	# We ONLY apply gravity and friction (horizontal 0).
 	state_machine.movement_component.apply_gravity(delta)
 	state_machine.movement_component.handle_velocity(0, delta) # Friction
 	state_machine.body.move_and_slide()

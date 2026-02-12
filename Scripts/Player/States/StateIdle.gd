@@ -9,6 +9,10 @@ func update(delta: float) -> void:
 	# We call super to handle transitions to Jump/Attack/Fall and Crouching
 	super.update(delta)
 	
+	# If state changed in super (e.g. to Attack), stop processing
+	if state_machine.current_state != self:
+		return
+	
 	# 2. Specific Logic for Idle
 	# If we are moving, transition to Moving
 	if state_machine.input_component.input_horizontal != 0:
@@ -18,10 +22,12 @@ func update(delta: float) -> void:
 	# Check Crouch Animation
 	if state_machine.is_crouching:
 		if state_machine.animation_player.current_animation != "Crouch":
-			state_machine.animation_player.play("Crouch")
+			state_machine.animation_player.play("CrouchTransition")
+			state_machine.animation_player.queue("Crouch")
 	else:
 		if state_machine.animation_player.current_animation != "Idle":
-			state_machine.animation_player.play("Idle")
+			state_machine.animation_player.play("CrouchTransition")
+			state_machine.animation_player.queue("Idle")
 
 func physics_update(delta: float) -> void:
 	super.physics_update(delta)

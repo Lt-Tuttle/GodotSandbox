@@ -5,12 +5,10 @@ extends Node
 
 func enter() -> void:
 	state_machine.animation_player.play("Jump")
-	# We don't reset collision here, handled by animation usually or not needed if we are in air.
-	# But if we were crouched, we might want to ensure we aren't? 
-	# The requirement says StateMachine has var is_crouching.
-	# If we jump, we probably want to uncrouch?
 	if state_machine.is_crouching:
 		state_machine.is_crouching = false
+		state_machine.body.collision_shape.scale = Vector2(1.0, state_machine.body.stand_collision_shape_scale)
+		state_machine.body.collision_shape.position.y = state_machine.body.stand_collision_shape_offset
 
 func exit() -> void:
 	pass

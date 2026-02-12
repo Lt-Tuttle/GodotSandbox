@@ -5,6 +5,8 @@ extends Node
 @onready var body: CharacterBody2D = get_parent()
 @onready var animation_player: AnimationPlayer = body.get_node("AnimationPlayer")
 @onready var sprite_2d: Sprite2D = body.get_node("Sprite2D")
+@onready var area_2d: Area2D = body.get_node("Area2D")
+@onready var collision_shape: CollisionShape2D = $"../Area2D/CollisionShape2D"
 
 # Dependency Injection
 @export var input_component: InputComponent
@@ -19,13 +21,8 @@ var states: Dictionary = {}
 @export var current_state: Node
 
 func _ready() -> void:
-	# Manual assignment if not set in editor, though export expects editor assignment usually.
-	# To be safe and compatible with previous setup where Player had them as children:
-	if not input_component:
-		input_component = body.get_node("InputComponent")
-	if not movement_component:
-		movement_component = body.get_node("MovementComponent")
-		
+	collision_shape.disabled = true
+	
 	# Initialize states
 	for child in get_children():
 		if child is Node:
@@ -60,3 +57,4 @@ func update_facing_direction() -> void:
 	if body.velocity.x != 0:
 		sprite_2d.flip_h = body.velocity.x < 0
 		sprite_2d.position.x = 5 if body.velocity.x > 0 else -5
+		area_2d.position.x = 45 if body.velocity.x > 0 else -45

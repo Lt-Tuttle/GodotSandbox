@@ -1,12 +1,16 @@
 class_name StateMoving
 extends StateGround
-	
+
 func enter() -> void:
 	state_machine.animation_player.play("Run")
 
 func update(delta: float) -> void:
 	# 1. Base Class Logic
 	super.update(delta)
+
+	# If state changed in super (e.g. to Attack), stop processing
+	if state_machine.current_state != self:
+		return
 	
 	# 2. Specific Logic for Moving
 	if state_machine.input_component.input_horizontal == 0:
