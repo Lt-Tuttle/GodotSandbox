@@ -51,8 +51,7 @@ func physics_update(delta: float) -> void:
 	state_machine.movement_component.apply_gravity(delta, roll_gravity_multiplier)
 	
 	# Decelerate roll speed if it started higher than base speed
-	if current_roll_speed > roll_speed:
-		current_roll_speed = move_toward(current_roll_speed, roll_speed, roll_deceleration * delta)
+	current_roll_speed = state_machine.movement_component.get_decelerated_speed(current_roll_speed, roll_speed, roll_deceleration, delta)
 	
 	# Move
 	state_machine.body.velocity.x = roll_direction * current_roll_speed

@@ -8,24 +8,9 @@ func exit() -> void:
 	pass
 
 func update(_delta: float) -> void:
-	# Crouch
-	if state_machine.input_component.consume_crouch():
-		if not state_machine.is_crouching:
-			state_machine.is_crouching = true
-			state_machine.body.collision_shape.scale = Vector2(1.0, state_machine.body.crouch_player_collision_shape_scale)
-			state_machine.body.collision_shape.position.y = state_machine.body.crouch_player_collision_shape_offset
-			return
-			
-		else: # Already crouching
-			state_machine.is_crouching = false
-			state_machine.body.collision_shape.scale = Vector2(1.0, state_machine.body.stand_player_collision_shape_scale)
-			state_machine.body.collision_shape.position.y = state_machine.body.stand_player_collision_shape_offset
-			return
-	
-	# Jump
-	if state_machine.input_component.consume_jump():
-		state_machine.movement_component.perform_jump()
-		state_machine.change_state(StateJumping)
+	# Attack
+	if state_machine.input_component.consume_attack():
+		state_machine.change_state(StateAttacking)
 		return
 
 	# Roll
@@ -33,11 +18,24 @@ func update(_delta: float) -> void:
 		state_machine.change_state(StateRoll)
 		return
 
-	# Attack
-	if state_machine.input_component.consume_attack():
-		state_machine.change_state(StateAttacking)
+	# Jump
+	if state_machine.input_component.consume_jump():
+		state_machine.movement_component.perform_jump()
+		state_machine.change_state(StateJumping)
 		return
 
+	# Crouch
+	if state_machine.input_component.consume_crouch():
+		if not state_machine.is_crouching:
+			state_machine.is_crouching = true
+			state_machine.movement_component.set_crouch_state(true)
+			return
+			
+		else: # Already crouching
+			state_machine.is_crouching = false
+			state_machine.movement_component.set_crouch_state(false)
+			return
+	
 	# Fall
 	if not state_machine.body.is_on_floor():
 		state_machine.change_state(StateJumping)

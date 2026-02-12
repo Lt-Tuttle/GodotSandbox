@@ -60,3 +60,16 @@ func perform_jump() -> void:
 	if body.is_on_floor() or coyote_timer > 0.0:
 		body.velocity.y = jump_velocity
 		coyote_timer = 0.0
+
+func set_crouch_state(active: bool) -> void:
+	if active:
+		body.collision_shape.scale = Vector2(1.0, body.crouch_player_collision_shape_scale)
+		body.collision_shape.position.y = body.crouch_player_collision_shape_offset
+	else:
+		body.collision_shape.scale = Vector2(1.0, body.stand_player_collision_shape_scale)
+		body.collision_shape.position.y = body.stand_player_collision_shape_offset
+
+func get_decelerated_speed(current_speed: float, target_speed: float, deceleration: float, delta: float) -> float:
+	if current_speed > target_speed:
+		return move_toward(current_speed, target_speed, deceleration * delta)
+	return current_speed

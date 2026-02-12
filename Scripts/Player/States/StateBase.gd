@@ -1,7 +1,7 @@
 class_name StateBase
 extends Node
 
-var state_machine # : StateMachine (Removed to fix cyclic dependency)
+var state_machine: StateMachine
 
 func enter() -> void:
 	pass

@@ -5,8 +5,7 @@ func enter() -> void:
 	state_machine.animation_player.play(GameConstants.ANIM_JUMP)
 	if state_machine.is_crouching:
 		state_machine.is_crouching = false
-		state_machine.body.collision_shape.scale = Vector2(1.0, state_machine.body.stand_player_collision_shape_scale)
-		state_machine.body.collision_shape.position.y = state_machine.body.stand_player_collision_shape_offset
+		state_machine.movement_component.set_crouch_state(false)
 
 func exit() -> void:
 	pass
