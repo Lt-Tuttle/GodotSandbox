@@ -975,6 +975,10 @@ animation = &"Run"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jbjyn"]
 animation = &"TurnAround"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wwmao"]
+xfade_time = 0.1
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8t5qx"]
 states/Attack/node = SubResource("AnimationNodeAnimation_8t5qx")
 states/Attack/position = Vector2(-98.91351, 248.66667)
@@ -990,16 +994,17 @@ states/Fall/position = Vector2(200.66669, -30.526749)
 states/Idle/node = SubResource("AnimationNodeAnimation_e5iqy")
 states/Idle/position = Vector2(-95.888916, 56.666664)
 states/Jump/node = SubResource("AnimationNodeAnimation_r6t50")
-states/Jump/position = Vector2(-94.33334, -30.740742)
+states/Jump/position = Vector2(101.66666, 489.92593)
 states/JumpPeak/node = SubResource("AnimationNodeAnimation_6rswy")
 states/JumpPeak/position = Vector2(47, -30.938274)
 states/Roll/node = SubResource("AnimationNodeAnimation_lw74r")
 states/Roll/position = Vector2(-99.49786, 347.66666)
 states/Run/node = SubResource("AnimationNodeAnimation_g7gci")
-states/Run/position = Vector2(27.333313, 55.333336)
+states/Run/position = Vector2(-99.16315, 488.39508)
 states/Start/position = Vector2(-315.33334, -25.333336)
 states/TurnAround/node = SubResource("AnimationNodeAnimation_jbjyn")
 states/TurnAround/position = Vector2(175.33334, 56.444443)
+transitions = ["Run", "Jump", SubResource("AnimationNodeStateMachineTransition_wwmao")]
 graph_offset = Vector2(-397.10208, -82)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_825xp"]
