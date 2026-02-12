@@ -32,6 +32,11 @@ func update(_delta: float) -> void:
 		state_machine.change_state("StateJumping")
 		return
 
+	# Roll
+	if state_machine.input_component.consume_roll():
+		state_machine.change_state("StateRoll")
+		return
+
 	# Attack
 	if state_machine.input_component.consume_attack():
 		state_machine.change_state("StateAttacking")

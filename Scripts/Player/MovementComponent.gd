@@ -39,9 +39,9 @@ func get_gravity() -> float:
 		current_gravity *= jump_peak_gravity_mult
 	return current_gravity
 
-func apply_gravity(delta: float) -> void:
+func apply_gravity(delta: float, gravity_multiplier: float = 1.0) -> void:
 	if not body.is_on_floor():
-		var g = get_gravity()
+		var g = get_gravity() * gravity_multiplier
 		body.velocity.y += g * delta
 		body.velocity.y = min(body.velocity.y, max_fall_speed)
 
