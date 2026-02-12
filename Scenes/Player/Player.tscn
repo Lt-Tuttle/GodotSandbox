@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cdgjai20k86jx" path="res://Assets/Player/PlayerJumpPeak.png" id="5_825xp"]
 [ext_resource type="Texture2D" uid="uid://be0xraqocmml8" path="res://Assets/Player/PlayerCrouchTransition.png" id="5_esmjy"]
 [ext_resource type="Texture2D" uid="uid://c2j1al2uqcg6x" path="res://Assets/Player/PlayerCrouchWalk.png" id="6_esmjy"]
+[ext_resource type="Texture2D" uid="uid://c7gef6s8jjd44" path="res://Assets/Player/PlayerCrouchAttack.png" id="6_r6t50"]
 [ext_resource type="Texture2D" uid="uid://b7l1pvb4trddc" path="res://Assets/Player/PlayerRoll.png" id="7_0kmp4"]
 [ext_resource type="Texture2D" uid="uid://bsgpcex32rovr" path="res://Assets/Player/PlayerDash.png" id="8_1e6p3"]
 [ext_resource type="Texture2D" uid="uid://de07spghdxnvt" path="res://Assets/Player/PlayerDeath.png" id="9_io2mu"]
@@ -26,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://c3ae8ggt1ssh8" path="res://Assets/Player/PlayerWallSlide.png" id="21_8rd5p"]
 [ext_resource type="Script" uid="uid://c18te3o0o4mab" path="res://Scripts/Player/States/StateIdle.gd" id="26_7xdrn"]
 [ext_resource type="Script" uid="uid://cv8xgfhq08753" path="res://Scripts/Player/StateMachine.gd" id="26_wwmao"]
+[ext_resource type="Script" uid="uid://bt1vwhjabkxlo" path="res://Scripts/Player/States/State.gd" id="27_6rswy"]
 [ext_resource type="Script" uid="uid://bpn1clb0vda3q" path="res://Scripts/Player/States/StateMoving.gd" id="27_wid83"]
 [ext_resource type="Script" uid="uid://c330frbttrpdr" path="res://Scripts/Player/States/StateJumping.gd" id="28_g7gci"]
 [ext_resource type="Script" uid="uid://bwudewyy16js1" path="res://Scripts/Player/States/StateAttacking.gd" id="29_r6t50"]
@@ -75,11 +77,11 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/path = NodePath("AttackHitbox/AttackHitboxCollisionShape:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.075, 0.3),
+"times": PackedFloat32Array(0.075, 0.225),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -164,6 +166,59 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6rswy"]
+resource_name = "CrouchAttack"
+length = 0.3
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_r6t50")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CrouchAttackHitbox/CrouchHitboxCollisionShape:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.075, 0.225),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_0objx"]
@@ -574,10 +629,22 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/path = NodePath("AttackHitbox/AttackHitboxCollisionShape:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CrouchAttackHitbox/CrouchHitboxCollisionShape:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -953,6 +1020,7 @@ _data = {
 &"Attack": SubResource("Animation_i5acl"),
 &"Attack2": SubResource("Animation_1e6p3"),
 &"Crouch": SubResource("Animation_spxdj"),
+&"CrouchAttack": SubResource("Animation_6rswy"),
 &"CrouchTransition": SubResource("Animation_0objx"),
 &"CrouchWalk": SubResource("Animation_6tu5v"),
 &"Dash": SubResource("Animation_io2mu"),
@@ -1012,41 +1080,53 @@ metadata/_custom_type_script = "uid://bluhd5yrsquep"
 script = ExtResource("3_gntrk")
 metadata/_custom_type_script = "uid://b3h0pvc0mqwpf"
 
-[node name="StateMachine" type="Node" parent="." unique_id=1279015830 node_paths=PackedStringArray("input_component", "movement_component", "current_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=1279015830 node_paths=PackedStringArray("attack_hitbox", "crouch_attack_hitbox", "attack_hitbox_collision_shape", "crouch_hitbox_collision_shape", "input_component", "movement_component", "current_state")]
 script = ExtResource("26_wwmao")
+attack_hitbox = NodePath("../AttackHitbox")
+crouch_attack_hitbox = NodePath("../CrouchAttackHitbox")
+attack_hitbox_collision_shape = NodePath("../AttackHitbox/AttackHitboxCollisionShape")
+crouch_hitbox_collision_shape = NodePath("../CrouchAttackHitbox/CrouchHitboxCollisionShape")
 input_component = NodePath("../InputComponent")
 movement_component = NodePath("../MovementComponent")
 current_state = NodePath("StateIdle")
 metadata/_custom_type_script = "uid://cv8xgfhq08753"
 
-[node name="StateIdle" type="Node" parent="StateMachine" unique_id=586124718 node_paths=PackedStringArray("state_machine")]
+[node name="State" type="Node" parent="StateMachine" unique_id=488711639]
+script = ExtResource("27_6rswy")
+
+[node name="StateIdle" type="Node" parent="StateMachine" unique_id=586124718]
 script = ExtResource("26_7xdrn")
-state_machine = NodePath("..")
-
-[node name="StateMoving" type="Node" parent="StateMachine" unique_id=283517804 node_paths=PackedStringArray("state_machine")]
-script = ExtResource("27_wid83")
-state_machine = NodePath("..")
-
-[node name="StateJumping" type="Node" parent="StateMachine" unique_id=1573825621 node_paths=PackedStringArray("state_machine")]
-script = ExtResource("28_g7gci")
-state_machine = NodePath("..")
-
-[node name="StateAttacking" type="Node" parent="StateMachine" unique_id=2035363194 node_paths=PackedStringArray("state_machine")]
-script = ExtResource("29_r6t50")
-state_machine = NodePath("..")
-
-[node name="StateGround" type="Node" parent="StateMachine" unique_id=1056832567 node_paths=PackedStringArray("state_machine")]
-script = ExtResource("30_wid83")
-state_machine = NodePath("..")
 
 [node name="StateRoll" type="Node" parent="StateMachine" unique_id=14955230]
 script = ExtResource("31_g7gci")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1537216102]
+[node name="StateGround" type="Node" parent="StateMachine" unique_id=1056832567]
+script = ExtResource("30_wid83")
+
+[node name="StateAttacking" type="Node" parent="StateMachine" unique_id=2035363194]
+script = ExtResource("29_r6t50")
+
+[node name="StateJumping" type="Node" parent="StateMachine" unique_id=1573825621]
+script = ExtResource("28_g7gci")
+
+[node name="StateMoving" type="Node" parent="StateMachine" unique_id=283517804]
+script = ExtResource("27_wid83")
+
+[node name="AttackHitbox" type="Area2D" parent="." unique_id=1537216102]
 position = Vector2(45, -20)
 rotation = 1.5707964
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1915550594]
+[node name="AttackHitboxCollisionShape" type="CollisionShape2D" parent="AttackHitbox" unique_id=1915550594]
+shape = SubResource("CapsuleShape2D_wid83")
+
+[node name="CrouchAttackHitbox" type="Area2D" parent="." unique_id=1002764058]
+position = Vector2(30, -15)
+rotation = 1.5707964
+scale = Vector2(0.75, 1)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CrouchHitboxCollisionShape" type="CollisionShape2D" parent="CrouchAttackHitbox" unique_id=615131045]
 shape = SubResource("CapsuleShape2D_wid83")

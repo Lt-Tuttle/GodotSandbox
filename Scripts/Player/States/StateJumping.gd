@@ -1,14 +1,12 @@
 class_name StateJumping
-extends Node
-
-@export var state_machine: StateMachine
+extends State
 
 func enter() -> void:
-	state_machine.animation_player.play("Jump")
+	state_machine.animation_player.play(GameConstants.ANIM_JUMP)
 	if state_machine.is_crouching:
 		state_machine.is_crouching = false
-		state_machine.body.collision_shape.scale = Vector2(1.0, state_machine.body.stand_collision_shape_scale)
-		state_machine.body.collision_shape.position.y = state_machine.body.stand_collision_shape_offset
+		state_machine.body.collision_shape.scale = Vector2(1.0, state_machine.body.stand_player_collision_shape_scale)
+		state_machine.body.collision_shape.position.y = state_machine.body.stand_player_collision_shape_offset
 
 func exit() -> void:
 	pass
@@ -19,23 +17,23 @@ func update(_delta: float) -> void:
 	var jump_threshold = state_machine.movement_component.jump_peak_threshold
 	
 	if vy < -jump_threshold:
-		state_machine.animation_player.play("Jump")
+		state_machine.animation_player.play(GameConstants.ANIM_JUMP)
 	elif vy > jump_threshold:
-		state_machine.animation_player.play("Fall")
+		state_machine.animation_player.play(GameConstants.ANIM_FALL)
 	else:
-		state_machine.animation_player.play("JumpPeak")
+		state_machine.animation_player.play(GameConstants.ANIM_JUMP_PEAK)
 
 	# Transitions
 	if state_machine.body.is_on_floor():
 		if state_machine.input_component.input_horizontal != 0:
-			state_machine.change_state("StateMoving")
+			state_machine.change_state(StateMoving)
 		else:
-			state_machine.change_state("StateIdle")
+			state_machine.change_state(StateIdle)
 		return
 		
-	# Attack in air? (Optional, assuming allowed for now)
+	# Attack in air
 	if state_machine.input_component.consume_attack():
-		state_machine.change_state("StateAttacking")
+		state_machine.change_state(StateAttacking)
 		return
 
 	state_machine.update_facing_direction()

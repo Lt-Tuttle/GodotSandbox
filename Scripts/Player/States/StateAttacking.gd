@@ -1,18 +1,19 @@
 class_name StateAttacking
-extends Node
-
-@export var state_machine: StateMachine
+extends State
 
 func enter() -> void:
-	state_machine.animation_player.play("Attack")
+	if state_machine.is_crouching:
+		state_machine.animation_player.play(GameConstants.ANIM_CROUCH_ATTACK)
+	else:
+		state_machine.animation_player.play(GameConstants.ANIM_ATTACK)
 
 func exit() -> void:
 	pass
 
 func update(_delta: float) -> void:
 	# Wait for animation to finish
-	if not state_machine.animation_player.is_playing() or state_machine.animation_player.current_animation != "Attack":
-		state_machine.change_state("StateIdle")
+	if not state_machine.animation_player.is_playing():
+		state_machine.change_state(StateIdle)
 		return
 
 func physics_update(delta: float) -> void:

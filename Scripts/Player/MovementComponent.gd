@@ -16,7 +16,7 @@ extends Node
 @export var jump_velocity: float = -400.0
 @export var gravity: float = 1000.0
 @export var max_fall_speed: float = 400.0
-@export var coyote_time: float = 0.1
+@export var coyote_time: float = 0.2
 @export var jump_peak_gravity_mult: float = 0.5 # Lowers gravity at jump apex
 
 var coyote_timer: float = 0.0
@@ -57,6 +57,6 @@ func handle_velocity(input_dir: float, delta: float, speed_mult: float = 1.0) ->
 		body.velocity.x = move_toward(body.velocity.x, 0.0, fric * delta)
 
 func perform_jump() -> void:
-	if coyote_timer > 0.0:
+	if body.is_on_floor() or coyote_timer > 0.0:
 		body.velocity.y = jump_velocity
 		coyote_timer = 0.0

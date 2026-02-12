@@ -1,7 +1,6 @@
 class_name StateRoll
-extends Node
+extends State
 
-@export var state_machine: StateMachine
 @export var roll_speed: float = 200.0
 @export var roll_deceleration: float = 200.0 # How fast we decelerate if starting faster than roll_speed
 @export var roll_gravity_multiplier: float = 0.75
@@ -34,18 +33,18 @@ func enter() -> void:
 	# Force facing direction update immediately for visual
 	state_machine.sprite_2d.flip_h = roll_direction < 0
 	
-	state_machine.animation_player.play("Roll")
+	state_machine.animation_player.play(GameConstants.ANIM_ROLL)
 
 func exit() -> void:
 	pass
 
 func update(_delta: float) -> void:
 	# End of roll
-	if not state_machine.animation_player.is_playing() or state_machine.animation_player.current_animation != "Roll":
+	if not state_machine.animation_player.is_playing() or state_machine.animation_player.current_animation != GameConstants.ANIM_ROLL:
 		if state_machine.input_component.input_horizontal != 0:
-			state_machine.change_state("StateMoving")
+			state_machine.change_state(StateMoving)
 		else:
-			state_machine.change_state("StateIdle")
+			state_machine.change_state(StateIdle)
 			
 func physics_update(delta: float) -> void:
 	# Apply gravity with multiplier

@@ -1,7 +1,5 @@
 class_name StateGround
-extends Node
-
-@export var state_machine: StateMachine
+extends State
 
 func enter() -> void:
 	pass
@@ -9,42 +7,40 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
-func update(_delta: float) -> void:
+func update(delta: float) -> void:
 	# Crouch
-	if state_machine.input_component.crouch_pressed:
+	if state_machine.input_component.consume_crouch():
 		if not state_machine.is_crouching:
 			state_machine.is_crouching = true
-			state_machine.body.collision_shape.scale = Vector2(1.0, state_machine.body.crouch_collision_shape_scale)
-			state_machine.body.collision_shape.position.y = state_machine.body.crouch_collision_shape_offset
-			state_machine.input_component.consume_crouch()
+			state_machine.body.collision_shape.scale = Vector2(1.0, state_machine.body.crouch_player_collision_shape_scale)
+			state_machine.body.collision_shape.position.y = state_machine.body.crouch_player_collision_shape_offset
 			return
 			
-		if state_machine.is_crouching:
+		else: # Already crouching
 			state_machine.is_crouching = false
-			state_machine.body.collision_shape.scale = Vector2(1.0, state_machine.body.stand_collision_shape_scale)
-			state_machine.body.collision_shape.position.y = state_machine.body.stand_collision_shape_offset
-			state_machine.input_component.consume_crouch()
+			state_machine.body.collision_shape.scale = Vector2(1.0, state_machine.body.stand_player_collision_shape_scale)
+			state_machine.body.collision_shape.position.y = state_machine.body.stand_player_collision_shape_offset
 			return
 	
 	# Jump
 	if state_machine.input_component.consume_jump():
 		state_machine.movement_component.perform_jump()
-		state_machine.change_state("StateJumping")
+		state_machine.change_state(StateJumping)
 		return
 
 	# Roll
 	if state_machine.input_component.consume_roll():
-		state_machine.change_state("StateRoll")
+		state_machine.change_state(StateRoll)
 		return
 
 	# Attack
 	if state_machine.input_component.consume_attack():
-		state_machine.change_state("StateAttacking")
+		state_machine.change_state(StateAttacking)
 		return
 
 	# Fall
 	if not state_machine.body.is_on_floor():
-		state_machine.change_state("StateJumping")
+		state_machine.change_state(StateJumping)
 		return
 
 	# Update Direction

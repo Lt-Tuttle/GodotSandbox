@@ -6,10 +6,10 @@ extends CharacterBody2D
 @onready var state_machine: StateMachine = $StateMachine
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
-@export var crouch_collision_shape_scale: float = 0.5
-@export var crouch_collision_shape_offset: float = -7.0
-@export var stand_collision_shape_scale: float = 1.0
-@export var stand_collision_shape_offset: float = -14
+@export var crouch_player_collision_shape_scale: float = 0.5
+@export var crouch_player_collision_shape_offset: float = -7.0
+@export var stand_player_collision_shape_scale: float = 1.0
+@export var stand_player_collision_shape_offset: float = -14
 
 func _process(_delta):
 	input_component.CheckInputs()

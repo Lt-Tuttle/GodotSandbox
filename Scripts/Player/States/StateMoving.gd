@@ -2,7 +2,7 @@ class_name StateMoving
 extends StateGround
 
 func enter() -> void:
-	state_machine.animation_player.play("Run")
+	state_machine.animation_player.play(GameConstants.ANIM_RUN)
 
 func update(delta: float) -> void:
 	# 1. Base Class Logic
@@ -14,16 +14,16 @@ func update(delta: float) -> void:
 	
 	# 2. Specific Logic for Moving
 	if state_machine.input_component.input_horizontal == 0:
-		state_machine.change_state("StateIdle")
+		state_machine.change_state(StateIdle)
 		return
 
 	# Check Crouch Animation
 	if state_machine.is_crouching:
-		if state_machine.animation_player.current_animation != "CrouchWalk":
-			state_machine.animation_player.play("CrouchWalk")
+		if state_machine.animation_player.current_animation != GameConstants.ANIM_CROUCH_WALK:
+			state_machine.animation_player.play(GameConstants.ANIM_CROUCH_WALK)
 	else:
-		if state_machine.animation_player.current_animation != "Run":
-			state_machine.animation_player.play("Run")
+		if state_machine.animation_player.current_animation != GameConstants.ANIM_RUN:
+			state_machine.animation_player.play(GameConstants.ANIM_RUN)
 
 func physics_update(delta: float) -> void:
 	super.physics_update(delta)
