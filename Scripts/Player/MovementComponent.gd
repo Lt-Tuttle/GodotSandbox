@@ -20,7 +20,6 @@ extends Node
 @export var jump_peak_gravity_mult: float = 0.5 # Lowers gravity at jump apex
 
 var coyote_timer: float = 0.0
-# is_crouching removed (passed as argument now)
 
 # Calculated once when the node is ready
 @onready var jump_peak_threshold: float = abs(jump_velocity * 0.1)
