@@ -4,21 +4,14 @@ extends CharacterBody2D
 @onready var movement_component: MovementComponent = $MovementComponent
 @onready var input_component: InputComponent = $InputComponent
 @onready var animation_tree: AnimationTree = $AnimationTree
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var state_machine: StateMachine = $StateMachine
 
-@export var state_machine: StateMachine
-
-var is_on_floor_value: bool = true
 
 func _ready():
 	animation_tree.advance_expression_base_node = get_path()
 	animation_tree.active = true
-	
-	if not state_machine:
-		state_machine = find_child("StateMachine")
 
 func _physics_process(delta):
 	input_component.CheckInputs()
-	state_machine.physics_update(delta)
+	state_machine._update(delta, animation_tree)
 	move_and_slide()
-	is_on_floor_value = is_on_floor()

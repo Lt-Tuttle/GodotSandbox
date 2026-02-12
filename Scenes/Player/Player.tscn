@@ -24,10 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://7wqx2hokexxm" path="res://Assets/Player/PlayerWallClimbNoMovement.png" id="19_e5iqy"]
 [ext_resource type="Texture2D" uid="uid://b7jluuvjmalwf" path="res://Assets/Player/PlayerWallHang.png" id="20_8t5qx"]
 [ext_resource type="Texture2D" uid="uid://c3ae8ggt1ssh8" path="res://Assets/Player/PlayerWallSlide.png" id="21_8rd5p"]
-[ext_resource type="Script" uid="uid://cv8xgfhq08753" path="res://Scripts/StateMachine/StateMachine.gd" id="26_wwmao"]
-[ext_resource type="Script" uid="uid://da0s0m4re50i0" path="res://Scripts/StateMachine/AirState.gd" id="27_7xdrn"]
-[ext_resource type="Script" uid="uid://b5ih4oepa5we4" path="res://Scripts/StateMachine/IdleState.gd" id="28_wid83"]
-[ext_resource type="Script" uid="uid://cvepv4losx3oh" path="res://Scripts/StateMachine/MoveState.gd" id="29_g7gci"]
+[ext_resource type="Script" path="res://Scripts/Player/StateMachine.gd" id="26_wwmao"]
 
 [sub_resource type="Animation" id="Animation_i5acl"]
 resource_name = "Attack"
@@ -1010,11 +1007,10 @@ graph_offset = Vector2(-397.10208, -82)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_825xp"]
 size = Vector2(8, 26)
 
-[node name="Player" type="CharacterBody2D" unique_id=1826747499 node_paths=PackedStringArray("state_machine")]
+[node name="Player" type="CharacterBody2D" unique_id=1826747499]
 collision_layer = 2
 floor_snap_length = 32.0
 script = ExtResource("1_kyqiw")
-state_machine = NodePath("StateMachine")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=704491435]
 position = Vector2(5, -40)
@@ -1041,17 +1037,7 @@ shape = SubResource("RectangleShape2D_825xp")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1279015830]
 script = ExtResource("26_wwmao")
-initial_state = NodePath("Idle")
 metadata/_custom_type_script = "uid://cv8xgfhq08753"
-
-[node name="Air" type="Node" parent="StateMachine" unique_id=1635279839]
-script = ExtResource("27_7xdrn")
-
-[node name="Idle" type="Node" parent="StateMachine" unique_id=1093025783]
-script = ExtResource("28_wid83")
-
-[node name="Move" type="Node" parent="StateMachine" unique_id=858986956]
-script = ExtResource("29_g7gci")
 
 [node name="InputComponent" type="Node" parent="." unique_id=1848018490]
 script = ExtResource("4_dewec")
