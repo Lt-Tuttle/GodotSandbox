@@ -36,9 +36,6 @@ func _ready() -> void:
 			states[child.get_script()] = child
 			child.state_machine = self
 			
-	# Start with Idle state, we can use the class name directly if we import it or knowing it's available
-	# However, since we might not have the class definition fully separate without cyclical deps in some languages, 
-	# but in GDScript 2.0 classes are global.
 	change_state(StateIdle)
 
 func _process(delta: float) -> void:

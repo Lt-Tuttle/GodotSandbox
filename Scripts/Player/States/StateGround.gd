@@ -7,7 +7,7 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	# Crouch
 	if state_machine.input_component.consume_crouch():
 		if not state_machine.is_crouching:
