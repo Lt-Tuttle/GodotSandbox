@@ -1,5 +1,5 @@
 class_name StateGround
-extends State
+extends StateBase
 
 func enter() -> void:
 	pass

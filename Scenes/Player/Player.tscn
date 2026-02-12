@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://c3ae8ggt1ssh8" path="res://Assets/Player/PlayerWallSlide.png" id="21_8rd5p"]
 [ext_resource type="Script" uid="uid://c18te3o0o4mab" path="res://Scripts/Player/States/StateIdle.gd" id="26_7xdrn"]
 [ext_resource type="Script" uid="uid://cv8xgfhq08753" path="res://Scripts/Player/StateMachine.gd" id="26_wwmao"]
-[ext_resource type="Script" uid="uid://bt1vwhjabkxlo" path="res://Scripts/Player/States/State.gd" id="27_6rswy"]
+[ext_resource type="Script" path="res://Scripts/Player/States/StateBase.gd" id="27_6rswy"]
 [ext_resource type="Script" uid="uid://bpn1clb0vda3q" path="res://Scripts/Player/States/StateMoving.gd" id="27_wid83"]
 [ext_resource type="Script" uid="uid://c330frbttrpdr" path="res://Scripts/Player/States/StateJumping.gd" id="28_g7gci"]
 [ext_resource type="Script" uid="uid://bwudewyy16js1" path="res://Scripts/Player/States/StateAttacking.gd" id="29_r6t50"]
@@ -1088,10 +1088,10 @@ attack_hitbox_collision_shape = NodePath("../AttackHitbox/AttackHitboxCollisionS
 crouch_hitbox_collision_shape = NodePath("../CrouchAttackHitbox/CrouchHitboxCollisionShape")
 input_component = NodePath("../InputComponent")
 movement_component = NodePath("../MovementComponent")
-current_state = NodePath("State")
+current_state = NodePath("StateBase")
 metadata/_custom_type_script = "uid://cv8xgfhq08753"
 
-[node name="State" type="Node" parent="StateMachine" unique_id=488711639]
+[node name="StateBase" type="Node" parent="StateMachine" unique_id=488711639]
 script = ExtResource("27_6rswy")
 
 [node name="StateIdle" type="Node" parent="StateMachine" unique_id=586124718]

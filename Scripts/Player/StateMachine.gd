@@ -22,7 +22,7 @@ var is_crouching: bool = false
 #Get all states
 var states: Dictionary = {}
 
-@export var current_state: State
+@export var current_state: StateBase
 
 func _ready() -> void:
 	if attack_hitbox_collision_shape:
@@ -32,7 +32,7 @@ func _ready() -> void:
 	
 	# Initialize states
 	for child in get_children():
-		if child is State:
+		if child is StateBase:
 			states[child.get_script()] = child
 			child.state_machine = self
 			

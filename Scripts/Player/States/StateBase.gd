@@ -1,4 +1,4 @@
-class_name State
+class_name StateBase
 extends Node
 
 var state_machine # : StateMachine (Removed to fix cyclic dependency)

@@ -1,5 +1,5 @@
 class_name StateRoll
-extends State
+extends StateBase
 
 @export var roll_speed: float = 200.0
 @export var roll_deceleration: float = 200.0 # How fast we decelerate if starting faster than roll_speed

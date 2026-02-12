@@ -1,5 +1,5 @@
 class_name StateJumping
-extends State
+extends StateBase
 
 func enter() -> void:
 	state_machine.animation_player.play(GameConstants.ANIM_JUMP)

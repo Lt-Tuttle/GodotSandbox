@@ -1,5 +1,5 @@
 class_name StateAttacking
-extends State
+extends StateBase
 
 func enter() -> void:
 	if state_machine.is_crouching:
