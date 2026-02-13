@@ -51,7 +51,7 @@ func change_state(target_state_script: Script) -> void:
 	if not new_state:
 		push_error("State not found for script: " + str(target_state_script))
 		return
-		
+	
 	if current_state:
 		current_state.exit()
 	
@@ -59,6 +59,9 @@ func change_state(target_state_script: Script) -> void:
 	current_state.enter()
 
 func update_facing_direction() -> void:
+	if animation_player.current_animation == GameConstants.ANIM_TURN_AROUND:
+		return
+
 	if body.velocity.x != 0:
 		var direction = -1 if body.velocity.x < 0 else 1
 		sprite_2d.flip_h = direction == -1

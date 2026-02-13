@@ -38,7 +38,7 @@ func update(_delta: float) -> void:
 	
 	# Fall
 	if not state_machine.body.is_on_floor():
-		state_machine.change_state(StateJumping)
+		state_machine.change_state(StateFalling)
 		return
 
 	# Update Direction

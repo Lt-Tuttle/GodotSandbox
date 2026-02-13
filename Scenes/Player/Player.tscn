@@ -27,12 +27,14 @@
 [ext_resource type="Texture2D" uid="uid://c3ae8ggt1ssh8" path="res://Assets/Player/PlayerWallSlide.png" id="21_8rd5p"]
 [ext_resource type="Script" uid="uid://c18te3o0o4mab" path="res://Scripts/Player/States/StateIdle.gd" id="26_7xdrn"]
 [ext_resource type="Script" uid="uid://cv8xgfhq08753" path="res://Scripts/Player/StateMachine.gd" id="26_wwmao"]
-[ext_resource type="Script" path="res://Scripts/Player/States/StateBase.gd" id="27_6rswy"]
+[ext_resource type="Script" uid="uid://bt1vwhjabkxlo" path="res://Scripts/Player/States/StateBase.gd" id="27_6rswy"]
 [ext_resource type="Script" uid="uid://bpn1clb0vda3q" path="res://Scripts/Player/States/StateMoving.gd" id="27_wid83"]
 [ext_resource type="Script" uid="uid://c330frbttrpdr" path="res://Scripts/Player/States/StateJumping.gd" id="28_g7gci"]
 [ext_resource type="Script" uid="uid://bwudewyy16js1" path="res://Scripts/Player/States/StateAttacking.gd" id="29_r6t50"]
 [ext_resource type="Script" uid="uid://dn0pnr5hry6bg" path="res://Scripts/Player/States/StateGround.gd" id="30_wid83"]
 [ext_resource type="Script" uid="uid://c7p8eptqpjtpf" path="res://Scripts/Player/States/StateRoll.gd" id="31_g7gci"]
+[ext_resource type="Script" uid="uid://b0m1a6xci1rfs" path="res://Scripts/Player/States/StateAir.gd" id="34_lw74r"]
+[ext_resource type="Script" uid="uid://cgyuwegmd0uwq" path="res://Scripts/Player/States/StateFalling.gd" id="35_tf3ct"]
 
 [sub_resource type="Animation" id="Animation_i5acl"]
 resource_name = "Attack"
@@ -1111,6 +1113,12 @@ script = ExtResource("28_g7gci")
 
 [node name="StateMoving" type="Node" parent="StateMachine" unique_id=283517804]
 script = ExtResource("27_wid83")
+
+[node name="StateAir" type="Node" parent="StateMachine" unique_id=1834832212]
+script = ExtResource("34_lw74r")
+
+[node name="StateFalling" type="Node" parent="StateMachine" unique_id=1611082058]
+script = ExtResource("35_tf3ct")
 
 [node name="AttackHitbox" type="Area2D" parent="." unique_id=1537216102]
 position = Vector2(45, -20)
