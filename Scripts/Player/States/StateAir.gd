@@ -13,12 +13,10 @@ func update(_delta: float) -> void:
 		state_machine.change_state(StateAttacking)
 		return
 	
+
 	# Landing Logic
-	if state_machine.body.is_on_floor():
-		if state_machine.input_component.input_horizontal != 0:
-			state_machine.change_state(StateMoving)
-		else:
-			state_machine.change_state(StateIdle)
+	if state_machine.body.is_on_floor() and state_machine.body.velocity.y >= 0:
+		state_machine.change_state(StateLanding)
 		return
 
 	# Update Direction
