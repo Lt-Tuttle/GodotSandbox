@@ -4,7 +4,7 @@ extends Node
 #Get all nodes
 @onready var body: CharacterBody2D = get_parent()
 @onready var animation_player: AnimationPlayer = body.get_node("AnimationPlayer")
-@onready var sprite_2d: Sprite2D = body.get_node("Sprite2D")
+@onready var sprite_2d: Sprite2D = body.get_node("Pivot/Sprite2D")
 
 @onready var pivot: Node2D = body.get_node("Pivot")
 @onready var wall_check: RayCast2D = pivot.get_node("WallCheck")

@@ -1218,10 +1218,8 @@ script = ExtResource("37_vrod0")
 [node name="StateLedgeGrab" type="Node" parent="StateMachine" unique_id=64392643]
 script = ExtResource("38_fcbn2")
 
-[node name="StateWallSlide" type="Node" parent="StateMachine" unique_id=904281594 node_paths=PackedStringArray("air_state", "ground_state")]
+[node name="StateWallSlide" type="Node" parent="StateMachine" unique_id=904281594]
 script = ExtResource("39_hjq2i")
-air_state = NodePath("../StateAir")
-ground_state = NodePath("../StateGround")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=1484773671]
 
