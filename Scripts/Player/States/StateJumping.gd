@@ -2,11 +2,10 @@ class_name StateJumping
 extends StateAir
 
 func enter() -> void:
-	if state_machine.input_component.consume_jump():
-		state_machine.animation_player.play(GameConstants.ANIM_JUMP)
-		if state_machine.is_crouching:
-			state_machine.is_crouching = false
-			state_machine.movement_component.set_crouch_state(false)
+	state_machine.animation_player.play(GameConstants.ANIM_JUMP)
+	if state_machine.is_crouching:
+		state_machine.is_crouching = false
+		state_machine.movement_component.set_crouch_state(false)
 
 func exit() -> void:
 	pass
@@ -19,7 +18,6 @@ func update(delta: float) -> void:
 	if vy < -jump_threshold:
 		state_machine.animation_player.play(GameConstants.ANIM_JUMP)
 	elif vy > jump_threshold:
-		# Transition to Falling state when moving downwards significantly
 		state_machine.change_state(StateFalling)
 		return
 	else:

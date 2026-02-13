@@ -13,7 +13,7 @@ extends Node
 @export var air_friction: float = 200.0
 
 @export_category("Jumping & Gravity")
-@export var jump_velocity: float = -400.0
+@export var jump_velocity: float = -350.0
 @export var gravity: float = 1000.0
 @export var max_fall_speed: float = 400.0
 @export var coyote_time: float = 0.2

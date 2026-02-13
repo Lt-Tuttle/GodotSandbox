@@ -7,7 +7,7 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	# Attack in air
 	if state_machine.input_component.consume_attack():
 		state_machine.change_state(StateAttacking)
