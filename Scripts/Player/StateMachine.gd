@@ -6,6 +6,13 @@ extends Node
 @onready var animation_player: AnimationPlayer = body.get_node("AnimationPlayer")
 @onready var sprite_2d: Sprite2D = body.get_node("Sprite2D")
 
+@onready var pivot: Node2D = body.get_node("Pivot")
+@onready var wall_check: RayCast2D = pivot.get_node("WallCheck")
+@onready var ledge_check: RayCast2D = pivot.get_node("LedgeCheck")
+@onready var back_wall_check: RayCast2D = pivot.get_node("BackWallCheck")
+@onready var back_ledge_check: RayCast2D = pivot.get_node("BackLedgeCheck")
+@onready var grab_position: Marker2D = pivot.get_node("GrabPosition")
+
 @export var attack_hitbox: Area2D
 @export var crouch_attack_hitbox: Area2D
 
@@ -25,10 +32,8 @@ var states: Dictionary = {}
 @export var current_state: StateBase
 
 func _ready() -> void:
-	if attack_hitbox_collision_shape:
-		attack_hitbox_collision_shape.disabled = true
-	if crouch_hitbox_collision_shape:
-		crouch_hitbox_collision_shape.disabled = true
+	attack_hitbox_collision_shape.disabled = true
+	crouch_hitbox_collision_shape.disabled = true
 	
 	# Initialize states
 	for child in get_children():
@@ -64,9 +69,4 @@ func update_facing_direction() -> void:
 
 	if body.velocity.x != 0:
 		var direction = -1 if body.velocity.x < 0 else 1
-		sprite_2d.flip_h = direction == -1
-		sprite_2d.position.x = abs(sprite_2d.position.x) * direction
-		if attack_hitbox:
-			attack_hitbox.position.x = abs(attack_hitbox.position.x) * direction
-		if crouch_attack_hitbox:
-			crouch_attack_hitbox.position.x = abs(crouch_attack_hitbox.position.x) * direction
+		pivot.scale.x = direction

@@ -56,9 +56,9 @@ func handle_velocity(input_dir: float, delta: float, speed_mult: float = 1.0) ->
 	else:
 		body.velocity.x = move_toward(body.velocity.x, 0.0, fric * delta)
 
-func perform_jump() -> void:
+func perform_jump(power_multiplier: float = 1.0) -> void:
 	if body.is_on_floor() or coyote_timer > 0.0:
-		body.velocity.y = jump_velocity
+		body.velocity.y = jump_velocity * power_multiplier
 		coyote_timer = 0.0
 
 func set_crouch_state(active: bool) -> void:

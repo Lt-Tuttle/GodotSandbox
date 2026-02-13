@@ -30,10 +30,13 @@ func update(delta: float) -> void:
 
 	if state_machine.animation_player.current_animation != GameConstants.ANIM_LANDING_HEAVY:
 		if state_machine.input_component.consume_jump():
-			if time_elapsed > min_landing_time:
-				state_machine.movement_component.perform_jump()
-				state_machine.change_state(StateJumping)
-				return
+			var jump_power = 1.0
+			if time_elapsed < min_landing_time:
+				jump_power = 0.75 # Weak jump if bunny hopping
+				
+			state_machine.movement_component.perform_jump(jump_power)
+			state_machine.change_state(StateJumping)
+			return
 		
 		if state_machine.input_component.consume_roll():
 			state_machine.change_state(StateRoll)
