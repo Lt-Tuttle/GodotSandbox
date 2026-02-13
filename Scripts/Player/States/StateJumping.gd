@@ -27,4 +27,10 @@ func update(delta: float) -> void:
 	super.update(delta)
 
 func physics_update(delta: float) -> void:
+	# Variable Jump Height
+	if not state_machine.input_component.jump_held:
+		var jump_cut_velocity = state_machine.movement_component.jump_velocity * 0.5
+		if state_machine.body.velocity.y < jump_cut_velocity:
+			state_machine.body.velocity.y = jump_cut_velocity
+			
 	super.physics_update(delta)

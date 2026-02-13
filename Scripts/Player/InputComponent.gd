@@ -11,6 +11,7 @@ var attack_timestamp: int = 0
 var move_vector: Vector2 = Vector2.ZERO
 var right_pressed: bool = false
 var left_pressed: bool = false
+var jump_held: bool = false
 
 func CheckInputs():
 	input_horizontal = Input.get_axis("MoveLeft", "MoveRight")
@@ -29,6 +30,7 @@ func CheckInputs():
 		
 	right_pressed = Input.is_action_pressed("MoveRight")
 	left_pressed = Input.is_action_pressed("MoveLeft")
+	jump_held = Input.is_action_pressed("Jump")
 	
 	move_vector = Vector2(input_horizontal, 0)
 

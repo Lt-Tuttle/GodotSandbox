@@ -23,10 +23,11 @@ func update(delta: float) -> void:
 			state_machine.animation_player.play(GameConstants.ANIM_CROUCH_WALK)
 	else:
 		if sign(state_machine.input_component.input_horizontal) != sign(state_machine.body.velocity.x) and state_machine.body.velocity.x != 0.0:
-			state_machine.animation_player.play(GameConstants.ANIM_TURN_AROUND)
-			state_machine.animation_player.queue(GameConstants.ANIM_RUN)
+			if state_machine.animation_player.current_animation != GameConstants.ANIM_TURN_AROUND:
+				state_machine.animation_player.play(GameConstants.ANIM_TURN_AROUND)
+				state_machine.animation_player.queue(GameConstants.ANIM_RUN)
 		else:
-			if state_machine.animation_player.current_animation != GameConstants.ANIM_RUN and state_machine.animation_player.current_animation != GameConstants.ANIM_TURN_AROUND:
+			if state_machine.animation_player.current_animation != GameConstants.ANIM_RUN:
 				state_machine.animation_player.play(GameConstants.ANIM_RUN)
 
 func physics_update(delta: float) -> void:

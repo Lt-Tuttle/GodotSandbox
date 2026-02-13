@@ -27,4 +27,10 @@ func physics_update(delta: float) -> void:
 	var input_dir = state_machine.input_component.input_horizontal
 	state_machine.movement_component.handle_velocity(input_dir, delta)
 	state_machine.movement_component.apply_gravity(delta)
+	
+	if state_machine.body.velocity.y > 0:
+		state_machine.movement_component.fall_time += delta
+	else:
+		state_machine.movement_component.fall_time = 0.0
+	
 	state_machine.body.move_and_slide()
