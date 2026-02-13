@@ -1090,7 +1090,7 @@ attack_hitbox_collision_shape = NodePath("../AttackHitbox/AttackHitboxCollisionS
 crouch_hitbox_collision_shape = NodePath("../CrouchAttackHitbox/CrouchHitboxCollisionShape")
 input_component = NodePath("../InputComponent")
 movement_component = NodePath("../MovementComponent")
-current_state = NodePath("StateBase")
+current_state = NodePath("StateIdle")
 metadata/_custom_type_script = "uid://cv8xgfhq08753"
 
 [node name="StateBase" type="Node" parent="StateMachine" unique_id=488711639]
