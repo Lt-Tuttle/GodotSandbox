@@ -30,10 +30,7 @@ func snap_to_ledge() -> void:
 	
 	if wall_check.is_colliding():
 		var wall_point = wall_check.get_collision_point()
-		var grab_offset = state_machine.grab_position.position
-		
 		var collision_x = wall_point.x
-		
 		var direction = state_machine.pivot.scale.x
 		
 		state_machine.body.global_position.x = collision_x - (state_machine.grab_position.position.x * direction)
