@@ -12,7 +12,7 @@ func exit() -> void:
 	pass
 
 func update(_delta: float) -> void:
-	if state_machine.input_component.consume_crouch() or Input.is_action_pressed("Crouch"):
+	if state_machine.input_component.consume_crouch() or state_machine.input_component.crouch_held:
 		state_machine.change_state(StateWallSlide)
 		return
 

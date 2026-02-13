@@ -1191,17 +1191,23 @@ script = ExtResource("30_wid83")
 [node name="StateAttacking" type="Node" parent="StateMachine" unique_id=2035363194]
 script = ExtResource("29_r6t50")
 
-[node name="StateJumping" type="Node" parent="StateMachine" unique_id=1573825621]
+[node name="StateJumping" type="Node" parent="StateMachine" unique_id=1573825621 node_paths=PackedStringArray("ledge_grab_state", "wall_slide_state")]
 script = ExtResource("28_g7gci")
+ledge_grab_state = NodePath("../StateLedgeGrab")
+wall_slide_state = NodePath("../StateWallSlide")
 
 [node name="StateMoving" type="Node" parent="StateMachine" unique_id=283517804]
 script = ExtResource("27_wid83")
 
-[node name="StateAir" type="Node" parent="StateMachine" unique_id=1834832212]
+[node name="StateAir" type="Node" parent="StateMachine" unique_id=1834832212 node_paths=PackedStringArray("ledge_grab_state", "wall_slide_state")]
 script = ExtResource("34_lw74r")
+ledge_grab_state = NodePath("../StateLedgeGrab")
+wall_slide_state = NodePath("../StateWallSlide")
 
-[node name="StateFalling" type="Node" parent="StateMachine" unique_id=1611082058]
+[node name="StateFalling" type="Node" parent="StateMachine" unique_id=1611082058 node_paths=PackedStringArray("ledge_grab_state", "wall_slide_state")]
 script = ExtResource("35_tf3ct")
+ledge_grab_state = NodePath("../StateLedgeGrab")
+wall_slide_state = NodePath("../StateWallSlide")
 
 [node name="StateLanding" type="Node" parent="StateMachine" unique_id=202682884]
 script = ExtResource("36_tf3ct")
