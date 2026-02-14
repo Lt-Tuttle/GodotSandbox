@@ -1,6 +1,9 @@
 class_name StateAir
 extends StateBase
 
+@export var ledge_grab_state: StateBase
+@export var wall_slide_state: StateBase
+
 func enter() -> void:
 	pass
 
