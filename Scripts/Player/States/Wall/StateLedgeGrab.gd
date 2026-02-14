@@ -1,6 +1,8 @@
 class_name StateLedgeGrab
 extends StateBase
 
+# TODO: Fix snap to ledge & find ledge height to match player grab position
+
 func enter() -> void:
 	state_machine.body.velocity = Vector2.ZERO
 	
