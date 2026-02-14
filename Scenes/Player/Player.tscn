@@ -1249,6 +1249,15 @@ hframes = 10
 [node name="GrabPosition" type="Marker2D" parent="Pivot" unique_id=1175038361]
 position = Vector2(12, -30.5)
 
+[node name="GroundCheck" type="RayCast2D" parent="Pivot" unique_id=630996119]
+target_position = Vector2(0, 10)
+
+[node name="NoPivot" type="Node2D" parent="." unique_id=1054543494]
+
+[node name="LedgeCheck" type="RayCast2D" parent="Pivot" unique_id=1272514366]
+position = Vector2(0, -40)
+target_position = Vector2(30, 0)
+
 [node name="WallCheck" type="RayCast2D" parent="Pivot" unique_id=395599854]
 position = Vector2(0, -25)
 target_position = Vector2(15, 0)
@@ -1256,10 +1265,6 @@ target_position = Vector2(15, 0)
 [node name="BackWallCheck" type="RayCast2D" parent="Pivot" unique_id=1463109542]
 position = Vector2(0, -25)
 target_position = Vector2(-15, 0)
-
-[node name="LedgeCheck" type="RayCast2D" parent="Pivot" unique_id=1272514366]
-position = Vector2(0, -40)
-target_position = Vector2(30, 0)
 
 [node name="BackLedgeCheck" type="RayCast2D" parent="Pivot" unique_id=1919474335]
 position = Vector2(0, -40)
@@ -1272,6 +1277,3 @@ target_position = Vector2(0, 15)
 [node name="BackLedgeTopCheck" type="RayCast2D" parent="Pivot" unique_id=1992907559]
 position = Vector2(-15, -40)
 target_position = Vector2(0, 15)
-
-[node name="GroundCheck" type="RayCast2D" parent="Pivot" unique_id=630996119]
-target_position = Vector2(0, 10)

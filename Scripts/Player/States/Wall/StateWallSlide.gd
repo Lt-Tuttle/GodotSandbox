@@ -31,7 +31,7 @@ func update(_delta: float) -> void:
 
 	# Check Ground
 	if state_machine.ground_check.is_colliding():
-		state_machine.change_state(StateGround)
+		state_machine.change_state(StateLanding)
 		return
 		
 

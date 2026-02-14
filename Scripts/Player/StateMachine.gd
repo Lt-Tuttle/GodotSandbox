@@ -7,6 +7,8 @@ extends Node
 @onready var sprite_2d: Sprite2D = body.get_node("Pivot/Sprite2D")
 
 @onready var pivot: Node2D = body.get_node("Pivot")
+
+@onready var no_pivot: Node2D = body.get_node("NoPivot")
 @onready var wall_check: RayCast2D = pivot.get_node("WallCheck")
 @onready var ledge_check: RayCast2D = pivot.get_node("LedgeCheck")
 @onready var back_wall_check: RayCast2D = pivot.get_node("BackWallCheck")
