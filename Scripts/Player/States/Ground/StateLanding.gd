@@ -6,7 +6,6 @@ var time_elapsed: float = 0.0
 func enter() -> void:
 	time_elapsed = 0.0
 	var fall_time = state_machine.movement_component.fall_time
-	print("Fall Time: ", fall_time)
 	
 	if fall_time >= 0.7:
 		state_machine.animation_player.play(GameConstants.ANIM_LANDING_HEAVY)

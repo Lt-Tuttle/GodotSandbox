@@ -22,6 +22,10 @@ extends Node
 var coyote_timer: float = 0.0
 var fall_time: float = 0.0
 
+@export_category("Wall Movement")
+@export var wall_slide_speed: float = 30.0
+@export var wall_jump_velocity: Vector2 = Vector2(100, -250) # Up and Out
+
 # Calculated once when the node is ready
 @onready var jump_peak_threshold: float = abs(jump_velocity * 0.1)
 

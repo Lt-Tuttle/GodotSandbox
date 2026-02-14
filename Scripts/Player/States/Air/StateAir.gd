@@ -70,15 +70,13 @@ func check_wall_slide() -> bool:
 	# Only slide if falling
 	if state_machine.body.velocity.y > 0:
 		# Check forward wall
-		if state_machine.wall_check.is_colliding(): # Or is_on_wall()
-			# Prevent sticky wall: if holding AWAY from wall, do not slide
+		if state_machine.wall_check.is_colliding():
 			var input_dir = state_machine.input_component.input_horizontal
 			var facing_dir = state_machine.pivot.scale.x
 			
-			if input_dir != 0 and sign(input_dir) != sign(facing_dir):
-				return false
-				
-			state_machine.change_state(StateWallSlide)
-			return true
+			# Must be holding TOWARDS the wall
+			if input_dir != 0 and sign(input_dir) == sign(facing_dir):
+				state_machine.change_state(StateWallSlide)
+				return true
 			
 	return false

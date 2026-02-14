@@ -1258,17 +1258,20 @@ position = Vector2(0, -25)
 target_position = Vector2(-15, 0)
 
 [node name="LedgeCheck" type="RayCast2D" parent="Pivot" unique_id=1272514366]
-position = Vector2(0, -45)
+position = Vector2(0, -40)
 target_position = Vector2(30, 0)
 
 [node name="BackLedgeCheck" type="RayCast2D" parent="Pivot" unique_id=1919474335]
-position = Vector2(0, -45)
+position = Vector2(0, -40)
 target_position = Vector2(-30, 0)
 
 [node name="LedgeTopCheck" type="RayCast2D" parent="Pivot" unique_id=1759430917]
-position = Vector2(15, -45)
-target_position = Vector2(0, 20)
+position = Vector2(15, -40)
+target_position = Vector2(0, 15)
 
 [node name="BackLedgeTopCheck" type="RayCast2D" parent="Pivot" unique_id=1992907559]
-position = Vector2(-15, -45)
-target_position = Vector2(0, 20)
+position = Vector2(-15, -40)
+target_position = Vector2(0, 15)
+
+[node name="GroundCheck" type="RayCast2D" parent="Pivot" unique_id=630996119]
+target_position = Vector2(0, 10)

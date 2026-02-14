@@ -40,5 +40,8 @@ func snap_to_ledge() -> void:
 		
 		var direction = state_machine.pivot.scale.x
 		
-		state_machine.body.global_position.x = corner_x - (state_machine.grab_position.position.x * direction)
-		state_machine.body.global_position.y = corner_y - state_machine.grab_position.position.y
+		var target_x = corner_x - (state_machine.grab_position.position.x * direction)
+		var target_y = corner_y - state_machine.grab_position.position.y
+
+		var tween = get_tree().create_tween()
+		tween.tween_property(state_machine.body, "global_position", Vector2(target_x, target_y), 0.1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)

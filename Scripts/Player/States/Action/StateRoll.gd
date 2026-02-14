@@ -28,10 +28,13 @@ func enter() -> void:
 		if abs(state_machine.body.velocity.x) > 10:
 			roll_direction = sign(state_machine.body.velocity.x)
 		else:
-			roll_direction = -1.0 if state_machine.sprite_2d.flip_h else 1.0
+			roll_direction = state_machine.pivot.scale.x
 			
 	# Force facing direction update immediately for visual
-	state_machine.sprite_2d.flip_h = roll_direction < 0
+	state_machine.pivot.scale.x = roll_direction
+	
+	# Ensure sprite flip is reset since we use pivot now
+	state_machine.sprite_2d.flip_h = false
 	
 	state_machine.animation_player.play(GameConstants.ANIM_ROLL)
 

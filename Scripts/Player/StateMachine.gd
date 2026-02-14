@@ -14,6 +14,7 @@ extends Node
 @onready var ledge_top_check: RayCast2D = pivot.get_node("LedgeTopCheck")
 @onready var back_ledge_top_check: RayCast2D = pivot.get_node("BackLedgeTopCheck")
 @onready var grab_position: Marker2D = pivot.get_node("GrabPosition")
+@onready var ground_check: RayCast2D = pivot.get_node("GroundCheck")
 
 @export var attack_hitbox: Area2D
 @export var crouch_attack_hitbox: Area2D
