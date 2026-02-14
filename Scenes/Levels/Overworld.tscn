@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://bf6q76bjuad0j"]
 
 [ext_resource type="PackedScene" uid="uid://bri27qbdftd3y" path="res://Scenes/Player/Player.tscn" id="1_hl7fj"]
-[ext_resource type="Texture2D" uid="uid://cegcju2pgf27k" path="res://Assets/Environment/Tilesets/DirtTiles1.png" id="1_whr1g"]
-[ext_resource type="Texture2D" uid="uid://vf5wpl3q4xiq" path="res://Assets/Environment/Tilesets/FloorTiles1.png" id="2_c6mje"]
+[ext_resource type="Texture2D" uid="uid://cegcju2pgf27k" path="res://Assets/Environment/TileSets/DirtTiles1.png" id="1_whr1g"]
+[ext_resource type="Texture2D" uid="uid://vf5wpl3q4xiq" path="res://Assets/Environment/TileSets/FloorTiles1.png" id="2_c6mje"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c6mje"]
 texture = ExtResource("1_whr1g")

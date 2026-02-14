@@ -11,6 +11,8 @@ extends Node
 @onready var ledge_check: RayCast2D = pivot.get_node("LedgeCheck")
 @onready var back_wall_check: RayCast2D = pivot.get_node("BackWallCheck")
 @onready var back_ledge_check: RayCast2D = pivot.get_node("BackLedgeCheck")
+@onready var ledge_top_check: RayCast2D = pivot.get_node("LedgeTopCheck")
+@onready var back_ledge_top_check: RayCast2D = pivot.get_node("BackLedgeTopCheck")
 @onready var grab_position: Marker2D = pivot.get_node("GrabPosition")
 
 @export var attack_hitbox: Area2D
@@ -63,6 +65,7 @@ func change_state(target_state_script: Script) -> void:
 	current_state = new_state
 	current_state.enter()
 
+# TODO: When rolling, you can messup the direction of the sprite compared to the hitboxes
 func update_facing_direction() -> void:
 	if animation_player.current_animation == GameConstants.ANIM_TURN_AROUND:
 		return

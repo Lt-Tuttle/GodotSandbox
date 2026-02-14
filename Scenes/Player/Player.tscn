@@ -1174,7 +1174,6 @@ crouch_hitbox_collision_shape = NodePath("../Pivot/CrouchAttackHitbox/CrouchHitb
 input_component = NodePath("../InputComponent")
 movement_component = NodePath("../MovementComponent")
 current_state = NodePath("StateIdle")
-metadata/_custom_type_script = "uid://cv8xgfhq08753"
 
 [node name="StateBase" type="Node" parent="StateMachine" unique_id=488711639]
 script = ExtResource("27_6rswy")
@@ -1247,21 +1246,29 @@ position = Vector2(5, -40)
 texture = ExtResource("2_jmcll")
 hframes = 10
 
-[node name="WallCheck" type="RayCast2D" parent="Pivot" unique_id=395599854]
-position = Vector2(0, -20)
-target_position = Vector2(20, 0)
-
-[node name="LedgeCheck" type="RayCast2D" parent="Pivot" unique_id=1272514366]
-position = Vector2(0, -45)
-target_position = Vector2(40, 0)
-
 [node name="GrabPosition" type="Marker2D" parent="Pivot" unique_id=1175038361]
 position = Vector2(12, -30.5)
 
+[node name="WallCheck" type="RayCast2D" parent="Pivot" unique_id=395599854]
+position = Vector2(0, -25)
+target_position = Vector2(15, 0)
+
 [node name="BackWallCheck" type="RayCast2D" parent="Pivot" unique_id=1463109542]
-position = Vector2(0, -10)
-target_position = Vector2(-16, 0)
+position = Vector2(0, -25)
+target_position = Vector2(-15, 0)
+
+[node name="LedgeCheck" type="RayCast2D" parent="Pivot" unique_id=1272514366]
+position = Vector2(0, -45)
+target_position = Vector2(30, 0)
 
 [node name="BackLedgeCheck" type="RayCast2D" parent="Pivot" unique_id=1919474335]
 position = Vector2(0, -45)
-target_position = Vector2(-40, 0)
+target_position = Vector2(-30, 0)
+
+[node name="LedgeTopCheck" type="RayCast2D" parent="Pivot" unique_id=1759430917]
+position = Vector2(15, -45)
+target_position = Vector2(0, 20)
+
+[node name="BackLedgeTopCheck" type="RayCast2D" parent="Pivot" unique_id=1992907559]
+position = Vector2(-15, -45)
+target_position = Vector2(0, 20)
