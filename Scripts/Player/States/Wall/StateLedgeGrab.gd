@@ -25,6 +25,8 @@ func update(_delta: float) -> void:
 func physics_update(_delta: float) -> void:
 	state_machine.body.velocity = Vector2.ZERO
 
+
+# TODO: Implement a downward raycast to find the ledge height
 func snap_to_ledge() -> void:
 	var wall_check = state_machine.wall_check
 	
