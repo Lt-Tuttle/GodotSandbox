@@ -1139,10 +1139,30 @@ _data = {
 radius = 20.0
 height = 44.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1826747499]
+[sub_resource type="LabelSettings" id="LabelSettings_vrod0"]
+font_size = 10
+
+[node name="Player" type="CharacterBody2D" unique_id=1826747499 node_paths=PackedStringArray("input_component", "movement_component", "state_machine", "animation_player", "sprite_2d", "pivot", "overhead_label", "wall_check", "ledge_check", "ledge_top_check", "grab_position", "ground_check", "attack_hitbox", "crouch_attack_hitbox", "attack_hitbox_collision_shape", "crouch_hitbox_collision_shape", "collision_shape")]
 collision_layer = 2
 floor_snap_length = 32.0
 script = ExtResource("1_kyqiw")
+input_component = NodePath("InputComponent")
+movement_component = NodePath("MovementComponent")
+state_machine = NodePath("StateMachine")
+animation_player = NodePath("AnimationPlayer")
+sprite_2d = NodePath("Pivot/Sprite2D")
+pivot = NodePath("Pivot")
+overhead_label = NodePath("Label")
+wall_check = NodePath("Pivot/WallCheck")
+ledge_check = NodePath("Pivot/LedgeCheck")
+ledge_top_check = NodePath("Pivot/LedgeTopCheck")
+grab_position = NodePath("Pivot/GrabPosition")
+ground_check = NodePath("Pivot/GroundCheck")
+attack_hitbox = NodePath("Pivot/AttackHitbox")
+crouch_attack_hitbox = NodePath("Pivot/CrouchAttackHitbox")
+attack_hitbox_collision_shape = NodePath("Pivot/AttackHitbox/AttackHitboxCollisionShape")
+crouch_hitbox_collision_shape = NodePath("Pivot/CrouchAttackHitbox/CrouchHitboxCollisionShape")
+collision_shape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1185868346]
 position = Vector2(0, -14)
@@ -1165,14 +1185,8 @@ metadata/_custom_type_script = "uid://bluhd5yrsquep"
 script = ExtResource("3_gntrk")
 metadata/_custom_type_script = "uid://b3h0pvc0mqwpf"
 
-[node name="StateMachine" type="Node" parent="." unique_id=1279015830 node_paths=PackedStringArray("attack_hitbox", "crouch_attack_hitbox", "attack_hitbox_collision_shape", "crouch_hitbox_collision_shape", "input_component", "movement_component", "current_state")]
+[node name="StateMachine" type="Node" parent="." unique_id=1279015830 node_paths=PackedStringArray("current_state")]
 script = ExtResource("26_wwmao")
-attack_hitbox = NodePath("../Pivot/AttackHitbox")
-crouch_attack_hitbox = NodePath("../Pivot/CrouchAttackHitbox")
-attack_hitbox_collision_shape = NodePath("../Pivot/AttackHitbox/AttackHitboxCollisionShape")
-crouch_hitbox_collision_shape = NodePath("../Pivot/CrouchAttackHitbox/CrouchHitboxCollisionShape")
-input_component = NodePath("../InputComponent")
-movement_component = NodePath("../MovementComponent")
 current_state = NodePath("StateIdle")
 
 [node name="StateBase" type="Node" parent="StateMachine" unique_id=488711639]
@@ -1247,31 +1261,34 @@ texture = ExtResource("2_jmcll")
 hframes = 10
 
 [node name="GrabPosition" type="Marker2D" parent="Pivot" unique_id=1175038361]
-position = Vector2(12, -30.5)
+position = Vector2(13, -33)
 
 [node name="GroundCheck" type="RayCast2D" parent="Pivot" unique_id=630996119]
 target_position = Vector2(0, 10)
 
 [node name="LedgeCheck" type="RayCast2D" parent="Pivot" unique_id=1272514366]
 position = Vector2(0, -40)
-target_position = Vector2(30, 0)
+target_position = Vector2(25, 0)
 
 [node name="WallCheck" type="RayCast2D" parent="Pivot" unique_id=395599854]
 position = Vector2(0, -25)
-target_position = Vector2(15, 0)
-
-[node name="BackWallCheck" type="RayCast2D" parent="Pivot" unique_id=1463109542]
-position = Vector2(0, -25)
-target_position = Vector2(-15, 0)
-
-[node name="BackLedgeCheck" type="RayCast2D" parent="Pivot" unique_id=1919474335]
-position = Vector2(0, -40)
-target_position = Vector2(-30, 0)
+target_position = Vector2(20, 0)
 
 [node name="LedgeTopCheck" type="RayCast2D" parent="Pivot" unique_id=1759430917]
-position = Vector2(15, -40)
+position = Vector2(20, -40)
 target_position = Vector2(0, 15)
 
-[node name="BackLedgeTopCheck" type="RayCast2D" parent="Pivot" unique_id=1992907559]
-position = Vector2(-15, -40)
-target_position = Vector2(0, 15)
+[node name="Label" type="Label" parent="." unique_id=718735565]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -60.0
+offset_right = 10.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_vrod0")
+vertical_alignment = 1

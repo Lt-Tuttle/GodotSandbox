@@ -2,7 +2,7 @@ class_name StateIdle
 extends StateGround
 
 func enter() -> void:
-	state_machine.animation_player.play(GameConstants.ANIM_IDLE)
+	player.animation_player.play(GameConstants.ANIM_IDLE)
 
 func update(delta: float) -> void:
 	# 1. Base Class Logic (Handling inputs, crouch toggle, etc.)
@@ -15,19 +15,19 @@ func update(delta: float) -> void:
 	
 	# 2. Specific Logic for Idle
 	# If we are moving, transition to Moving
-	if state_machine.input_component.input_horizontal != 0:
+	if input_component.input_horizontal != 0:
 		state_machine.change_state(StateMoving)
 		return
 	
 	# Check Crouch Animation
 	if state_machine.is_crouching:
-		if state_machine.animation_player.current_animation != GameConstants.ANIM_CROUCH:
-			state_machine.animation_player.play(GameConstants.ANIM_CROUCH_TRANSITION)
-			state_machine.animation_player.queue(GameConstants.ANIM_CROUCH)
+		if player.animation_player.current_animation != GameConstants.ANIM_CROUCH:
+			player.animation_player.play(GameConstants.ANIM_CROUCH_TRANSITION)
+			player.animation_player.queue(GameConstants.ANIM_CROUCH)
 	else:
-		if state_machine.animation_player.current_animation != GameConstants.ANIM_IDLE:
-			state_machine.animation_player.play(GameConstants.ANIM_CROUCH_TRANSITION)
-			state_machine.animation_player.queue(GameConstants.ANIM_IDLE)
+		if player.animation_player.current_animation != GameConstants.ANIM_IDLE:
+			player.animation_player.play(GameConstants.ANIM_CROUCH_TRANSITION)
+			player.animation_player.queue(GameConstants.ANIM_IDLE)
 
 func physics_update(delta: float) -> void:
 	super.physics_update(delta)

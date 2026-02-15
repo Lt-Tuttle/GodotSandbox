@@ -1,47 +1,59 @@
 class_name StateLedgeGrab
 extends StateBase
 
+var snap_tween: Tween
+
 func enter() -> void:
-	state_machine.body.velocity = Vector2.ZERO
-	
-	snap_to_ledge()
-	
-	state_machine.animation_player.play(GameConstants.ANIM_LEDGE_GRAB)
+    player.velocity = Vector2.ZERO
+    
+    snap_to_ledge()
+    
+    player.animation_player.play(GameConstants.ANIM_LEDGE_GRAB)
 
 func exit() -> void:
-	pass
+    if snap_tween and snap_tween.is_valid():
+        snap_tween.kill()
 
 func update(_delta: float) -> void:
-	if state_machine.input_component.consume_crouch() or state_machine.input_component.crouch_held:
-		state_machine.change_state(StateWallSlide)
-		return
+    if input_component.consume_crouch() or input_component.crouch_held:
+        player.movement_component.lock_wall_jump()
+        state_machine.change_state(StateFalling)
+        return
 
-	if state_machine.input_component.consume_jump():
-		state_machine.change_state(StateLedgeClimb)
-		return
+    if input_component.consume_jump():
+        if input_component.left_pressed or input_component.right_pressed:
+            var back_dir = player.pivot.scale.x * -1
+            player.movement_component.perform_wall_jump(back_dir)
+            state_machine.change_state(StateJumping)
+        else:
+            state_machine.change_state(StateLedgeClimb)
+        return
 
 func physics_update(_delta: float) -> void:
-	state_machine.body.velocity = Vector2.ZERO
+    player.velocity = Vector2.ZERO
 
 
 func snap_to_ledge() -> void:
-	var wall_check = state_machine.wall_check
-	var ledge_top_check = state_machine.ledge_top_check
+    var wall_check = player.wall_check
+    var ledge_top_check = player.ledge_top_check
 
-	wall_check.force_raycast_update()
-	ledge_top_check.force_raycast_update()
+    wall_check.force_raycast_update()
+    ledge_top_check.force_raycast_update()
 
-	if wall_check.is_colliding() and ledge_top_check.is_colliding():
-		var wall_point = wall_check.get_collision_point()
-		var ledge_point = ledge_top_check.get_collision_point()
-		
-		var corner_x = wall_point.x
-		var corner_y = ledge_point.y
-		
-		var direction = state_machine.pivot.scale.x
-		
-		var target_x = corner_x - (state_machine.grab_position.position.x * direction)
-		var target_y = corner_y - state_machine.grab_position.position.y
+    if wall_check.is_colliding() and ledge_top_check.is_colliding():
+        var wall_point = wall_check.get_collision_point()
+        var ledge_point = ledge_top_check.get_collision_point()
+        
+        var corner_x = wall_point.x
+        var corner_y = ledge_point.y
+        
+        var direction = player.pivot.scale.x
+        
+        var target_x = corner_x - (player.grab_position.position.x * direction)
+        var target_y = corner_y - player.grab_position.position.y
 
-		var tween = get_tree().create_tween()
-		tween.tween_property(state_machine.body, "global_position", Vector2(target_x, target_y), 0.1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+        if snap_tween and snap_tween.is_valid():
+            snap_tween.kill()
+        
+        snap_tween = get_tree().create_tween()
+        snap_tween.tween_property(player, "global_position", Vector2(target_x, target_y), 0.2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)

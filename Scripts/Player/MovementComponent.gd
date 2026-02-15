@@ -25,9 +25,12 @@ var fall_time: float = 0.0
 @export_category("Wall Movement")
 @export var wall_slide_speed: float = 30.0
 @export var wall_jump_velocity: Vector2 = Vector2(100, -250) # Up and Out
+var wall_jump_lockout: float = 0.0
 
 # Calculated once when the node is ready
-@onready var jump_peak_threshold: float = abs(jump_velocity * 0.1)
+# Calculated dynamically
+func get_jump_peak_threshold() -> float:
+	return abs(jump_velocity * 0.1)
 
 func _physics_process(delta: float) -> void:
 	# Update Coyote Timer independently of state
@@ -35,11 +38,14 @@ func _physics_process(delta: float) -> void:
 		coyote_timer = coyote_time
 	else:
 		coyote_timer -= delta
+		
+	if wall_jump_lockout > 0:
+		wall_jump_lockout -= delta
 
 func get_gravity() -> float:
 	var current_gravity = gravity
 	# Apply floaty apex
-	if abs(body.velocity.y) < jump_peak_threshold:
+	if abs(body.velocity.y) < get_jump_peak_threshold():
 		current_gravity *= jump_peak_gravity_mult
 	return current_gravity
 
@@ -64,6 +70,14 @@ func perform_jump(power_multiplier: float = 1.0) -> void:
 	if body.is_on_floor() or coyote_timer > 0.0:
 		body.velocity.y = jump_velocity * power_multiplier
 		coyote_timer = 0.0
+
+func perform_wall_jump(direction: float) -> void:
+	body.velocity.x = direction * wall_jump_velocity.x
+	body.velocity.y = wall_jump_velocity.y
+	lock_wall_jump()
+
+func lock_wall_jump() -> void:
+	wall_jump_lockout = 0.2
 
 func set_crouch_state(active: bool) -> void:
 	if active:

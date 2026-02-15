@@ -12,13 +12,13 @@ func exit() -> void:
 
 func update(_delta: float) -> void:
 	# Attack in air
-	if state_machine.input_component.consume_attack():
+	if input_component.consume_attack():
 		state_machine.change_state(StateAttacking)
 		return
 	
 
 	# Landing Logic
-	if state_machine.body.is_on_floor() and state_machine.body.velocity.y >= 0:
+	if player.is_on_floor() and player.velocity.y >= 0:
 		state_machine.change_state(StateLanding)
 		return
 
@@ -33,34 +33,30 @@ func physics_update(delta: float) -> void:
 		return
 
 	# Air control
-	var input_dir = state_machine.input_component.input_horizontal
-	state_machine.movement_component.handle_velocity(input_dir, delta)
-	state_machine.movement_component.apply_gravity(delta)
+	var input_dir = input_component.input_horizontal
+	movement_component.handle_velocity(input_dir, delta)
+	movement_component.apply_gravity(delta)
 	
-	if state_machine.body.velocity.y > 0:
-		state_machine.movement_component.fall_time += delta
+	if player.velocity.y > 0:
+		movement_component.fall_time += delta
 	else:
-		state_machine.movement_component.fall_time = 0.0
+		movement_component.fall_time = 0.0
 	
-	state_machine.body.move_and_slide()
+	player.move_and_slide()
 
 func check_ledge_grab() -> bool:
 	if not ledge_grab_state: return false
+	if movement_component.wall_jump_lockout > 0: return false
 	
-	# Forward Check
-	if state_machine.wall_check.is_colliding() and not state_machine.ledge_check.is_colliding():
+	if player.wall_check.is_colliding() and not player.ledge_check.is_colliding():
+		# Prevent grabbing if holding AWAY from wall
+		var input = input_component.input_horizontal
+		var facing = player.pivot.scale.x
+		if input != 0 and sign(input) != sign(facing):
+			return false
+			
 		state_machine.change_state(StateLedgeGrab)
 		return true
-
-	# Backward Check (Walk-off logic)
-	# Only if we are falling and just started falling (to avoid snapping mid-air randomly?)
-	# Or if velocity.y is positive.
-	if state_machine.body.velocity.y > 0:
-		if state_machine.back_wall_check.is_colliding() and not state_machine.back_ledge_check.is_colliding():
-			# Flip character to face the wall
-			state_machine.pivot.scale.x *= -1
-			state_machine.change_state(StateLedgeGrab)
-			return true
 			
 	return false
 
@@ -68,11 +64,11 @@ func check_wall_slide() -> bool:
 	if not wall_slide_state: return false
 	
 	# Only slide if falling
-	if state_machine.body.velocity.y > 0:
+	if player.velocity.y > 0:
 		# Check forward wall
-		if state_machine.wall_check.is_colliding():
-			var input_dir = state_machine.input_component.input_horizontal
-			var facing_dir = state_machine.pivot.scale.x
+		if player.is_on_wall():
+			var input_dir = input_component.input_horizontal
+			var facing_dir = player.pivot.scale.x
 			
 			# Must be holding TOWARDS the wall
 			if input_dir != 0 and sign(input_dir) == sign(facing_dir):

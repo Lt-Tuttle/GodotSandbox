@@ -2,35 +2,36 @@ class_name StateJumping
 extends StateAir
 
 func enter() -> void:
-	state_machine.animation_player.play(GameConstants.ANIM_JUMP)
+	player.animation_player.play(GameConstants.ANIM_JUMP)
 	if state_machine.is_crouching:
 		state_machine.is_crouching = false
-		state_machine.movement_component.set_crouch_state(false)
+		movement_component.set_crouch_state(false)
 
 func exit() -> void:
 	pass
 
 func update(delta: float) -> void:
 	# Animation Logic
-	var vy = state_machine.body.velocity.y
-	var jump_threshold = state_machine.movement_component.jump_peak_threshold
+	var vy = player.velocity.y
+	var jump_threshold = movement_component.get_jump_peak_threshold()
 	
 	if vy < -jump_threshold:
-		state_machine.animation_player.play(GameConstants.ANIM_JUMP)
+		player.animation_player.play(GameConstants.ANIM_JUMP)
 	elif vy > jump_threshold:
 		state_machine.change_state(StateFalling)
 		return
 	else:
-		state_machine.animation_player.play(GameConstants.ANIM_JUMP_PEAK)
+		player.animation_player.play(GameConstants.ANIM_JUMP_PEAK)
 
 	# Shared Air Logic (Landing, Attacks, Direction)
 	super.update(delta)
 
 func physics_update(delta: float) -> void:
 	# Variable Jump Height
-	if not state_machine.input_component.jump_held:
-		var jump_cut_velocity = state_machine.movement_component.jump_velocity * 0.5
-		if state_machine.body.velocity.y < jump_cut_velocity:
-			state_machine.body.velocity.y = jump_cut_velocity
+	# Must apply BEFORE gravity (in super.physics_update) for responsive feel
+	if not input_component.jump_held:
+		var jump_cut_velocity = movement_component.jump_velocity * 0.5
+		if player.velocity.y < jump_cut_velocity:
+			player.velocity.y = jump_cut_velocity
 			
 	super.physics_update(delta)

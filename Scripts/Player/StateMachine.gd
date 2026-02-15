@@ -1,31 +1,10 @@
 class_name StateMachine
 extends Node
 
-#Get all nodes
-@onready var body: CharacterBody2D = get_parent()
-@onready var animation_player: AnimationPlayer = body.get_node("AnimationPlayer")
-@onready var sprite_2d: Sprite2D = body.get_node("Pivot/Sprite2D")
-
-@onready var pivot: Node2D = body.get_node("Pivot")
-
-@onready var wall_check: RayCast2D = pivot.get_node("WallCheck")
-@onready var ledge_check: RayCast2D = pivot.get_node("LedgeCheck")
-@onready var back_wall_check: RayCast2D = pivot.get_node("BackWallCheck")
-@onready var back_ledge_check: RayCast2D = pivot.get_node("BackLedgeCheck")
-@onready var ledge_top_check: RayCast2D = pivot.get_node("LedgeTopCheck")
-@onready var back_ledge_top_check: RayCast2D = pivot.get_node("BackLedgeTopCheck")
-@onready var grab_position: Marker2D = pivot.get_node("GrabPosition")
-@onready var ground_check: RayCast2D = pivot.get_node("GroundCheck")
-
-@export var attack_hitbox: Area2D
-@export var crouch_attack_hitbox: Area2D
-
-@export var attack_hitbox_collision_shape: CollisionShape2D
-@export var crouch_hitbox_collision_shape: CollisionShape2D
-
 # Dependency Injection
-@export var input_component: InputComponent
-@export var movement_component: MovementComponent
+var player: Player
+var input_component: InputComponent
+var movement_component: MovementComponent
 
 # State Variables
 var is_crouching: bool = false
@@ -35,15 +14,23 @@ var states: Dictionary = {}
 
 @export var current_state: StateBase
 
-func _ready() -> void:
-	attack_hitbox_collision_shape.disabled = true
-	crouch_hitbox_collision_shape.disabled = true
+func init(new_player: Player, new_input: InputComponent, new_movement: MovementComponent) -> void:
+	player = new_player
+	input_component = new_input
+	movement_component = new_movement
+	
+	# Initialize hitboxes (logic moved from _ready)
+	if player.attack_hitbox_collision_shape:
+		player.attack_hitbox_collision_shape.disabled = true
+	if player.crouch_hitbox_collision_shape:
+		player.crouch_hitbox_collision_shape.disabled = true
 	
 	# Initialize states
 	for child in get_children():
 		if child is StateBase:
 			states[child.get_script()] = child
 			child.state_machine = self
+			child.init(player, input_component, movement_component)
 			
 	change_state(StateIdle)
 
@@ -67,11 +54,18 @@ func change_state(target_state_script: Script) -> void:
 	current_state = new_state
 	current_state.enter()
 
-# TODO: When rolling, you can messup the direction of the sprite compared to the hitboxes
 func update_facing_direction() -> void:
-	if animation_player.current_animation == GameConstants.ANIM_TURN_AROUND:
+	if player.animation_player.current_animation == GameConstants.ANIM_TURN_AROUND:
 		return
 
-	if body.velocity.x != 0:
-		var direction = -1 if body.velocity.x < 0 else 1
-		pivot.scale.x = direction
+	if player.is_on_wall() and input_component.input_horizontal != 0:
+		if current_state is StateFalling:
+			player.state_machine.change_state(StateWallSlide)
+		else:
+			player.pivot.scale.x = input_component.input_horizontal
+		return
+
+	if player.velocity.x != 0:
+		var direction = -1 if player.velocity.x < 0 else 1
+		player.pivot.scale.x = direction
+		return

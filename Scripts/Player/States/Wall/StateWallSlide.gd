@@ -1,56 +1,62 @@
 class_name StateWallSlide
 extends StateBase
 
+@export var wall_slide_friction: float = 1500.0
+
 
 func enter() -> void:
-	state_machine.animation_player.play(GameConstants.ANIM_WALL_SLIDE)
-	state_machine.pivot.scale.x *= -1
+    player.animation_player.play(GameConstants.ANIM_WALL_SLIDE)
+    # Force facing away from wall (since input is towards wall)
+    if input_component.input_horizontal != 0:
+        player.pivot.scale.x = - input_component.input_horizontal
 
 func exit() -> void:
-	pass
+    pass
 
 func update(_delta: float) -> void:
-	# Jump -> Wall Jump
-	if state_machine.input_component.consume_jump():
-		wall_jump()
-		return
-		
-	# Check if we are still on wall
-	if not check_wall_contact():
-		state_machine.change_state(StateAir)
-		return
-		
-	# Check input: must hold towards wall
-	var input_dir = state_machine.input_component.input_horizontal
-	var facing_dir = state_machine.pivot.scale.x
-	
-	# Since sprite flips away from wall, input must be opposite to facing dir
-	if input_dir == 0 or sign(input_dir) == sign(facing_dir):
-		state_machine.change_state(StateAir)
-		return
+    # Jump -> Wall Jump
+    if input_component.consume_jump():
+        wall_jump()
+        return
 
-	# Check Ground
-	if state_machine.ground_check.is_colliding():
-		state_machine.change_state(StateLanding)
-		return
-		
+
+    # Check if we are still on wall
+    # Exit only if we lost contact
+    if not check_wall_contact():
+        state_machine.change_state(StateFalling)
+        return
+
+    # Check Ground
+    if player.ground_check.is_colliding():
+        state_machine.change_state(StateLanding)
+        return
+        
 
 func physics_update(_delta: float) -> void:
-	var current_velocity = state_machine.body.velocity
-	
-	state_machine.body.velocity.y = move_toward(current_velocity.y, state_machine.movement_component.wall_slide_speed, 800 * _delta) # 800 is friction accel
-	
-	var facing_dir = state_machine.pivot.scale.x
-	state_machine.body.velocity.x = - facing_dir * 10.0 # Tiny push into wall
-	
-	state_machine.body.move_and_slide()
+    var current_velocity = player.velocity
+    var input_dir = input_component.input_horizontal
+    var facing_dir = player.pivot.scale.x
+    
+    # Slide Friction if holding towards wall, else plain Gravity (fall faster)
+    if input_dir != 0 and sign(input_dir) != sign(facing_dir):
+        player.velocity.y = move_toward(current_velocity.y, movement_component.wall_slide_speed, wall_slide_friction * _delta)
+    else:
+        movement_component.apply_gravity(_delta)
+    
+    # X Movement Logic
+    # If inputting AWAY from wall, allow movement to detach
+    if input_dir != 0 and sign(input_dir) == sign(facing_dir):
+        movement_component.handle_velocity(input_dir, _delta)
+    else:
+        # Otherwise, push into wall to maintain contact
+        player.velocity.x = - facing_dir * 10.0
+    
+    player.move_and_slide()
 
 func wall_jump() -> void:
-	var facing_dir = state_machine.pivot.scale.x
-	var jump_vel = state_machine.movement_component.wall_jump_velocity
-	state_machine.body.velocity.x = facing_dir * jump_vel.x
-	state_machine.body.velocity.y = jump_vel.y
-	state_machine.change_state(StateJumping)
+    var facing_dir = player.pivot.scale.x
+    movement_component.perform_wall_jump(facing_dir)
+    state_machine.change_state(StateJumping)
 
 func check_wall_contact() -> bool:
-	return state_machine.body.is_on_wall() or state_machine.wall_check.is_colliding()
+    return player.is_on_wall()
