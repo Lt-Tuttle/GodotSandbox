@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cegcju2pgf27k"
-path="res://.godot/imported/DirtTiles1.png-b65a0c965d95089a7788f659927ad6cd.ctex"
+path="res://.godot/imported/DirtTiles1.png-5861d85597ff2afcc13964cfd2661bd0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/TileSets/DirtTiles1.png"
-dest_files=["res://.godot/imported/DirtTiles1.png-b65a0c965d95089a7788f659927ad6cd.ctex"]
+source_file="res://Assets/Environment/Tilesets/DirtTiles1.png"
+dest_files=["res://.godot/imported/DirtTiles1.png-5861d85597ff2afcc13964cfd2661bd0.ctex"]
 
 [params]
 
