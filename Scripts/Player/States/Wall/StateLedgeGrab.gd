@@ -21,7 +21,10 @@ func update(_delta: float) -> void:
         return
 
     if input_component.consume_jump():
-        if input_component.left_pressed or input_component.right_pressed:
+        var input_dir = input_component.input_horizontal
+        var facing_dir = player.pivot.scale.x
+        
+        if input_dir != 0 and sign(input_dir) != sign(facing_dir):
             var back_dir = player.pivot.scale.x * -1
             player.movement_component.perform_wall_jump(back_dir)
             state_machine.change_state(StateJumping)

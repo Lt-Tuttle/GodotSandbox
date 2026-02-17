@@ -34,7 +34,8 @@ func physics_update(delta: float) -> void:
 
 	# Air control
 	var input_dir = input_component.input_horizontal
-	movement_component.handle_velocity(input_dir, delta)
+	if movement_component.wall_jump_lockout <= 0:
+		movement_component.handle_velocity(input_dir, delta)
 	movement_component.apply_gravity(delta)
 	
 	if player.velocity.y > 0:
@@ -66,13 +67,14 @@ func check_wall_slide() -> bool:
 	# Only slide if falling
 	if player.velocity.y > 0:
 		# Check forward wall
-		if player.is_on_wall():
+		if player.is_on_wall() and player.wall_check.is_colliding():
 			var input_dir = input_component.input_horizontal
 			var facing_dir = player.pivot.scale.x
 			
 			# Must be holding TOWARDS the wall
 			if input_dir != 0 and sign(input_dir) == sign(facing_dir):
-				state_machine.change_state(StateWallSlide)
-				return true
+				if player.wall_check.is_colliding():
+					state_machine.change_state(StateWallSlide)
+					return true
 			
 	return false

@@ -59,10 +59,7 @@ func update_facing_direction() -> void:
 		return
 
 	if player.is_on_wall() and input_component.input_horizontal != 0:
-		if current_state is StateFalling:
-			player.state_machine.change_state(StateWallSlide)
-		else:
-			player.pivot.scale.x = input_component.input_horizontal
+		player.pivot.scale.x = input_component.input_horizontal
 		return
 
 	if player.velocity.x != 0:

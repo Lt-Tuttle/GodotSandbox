@@ -49,7 +49,7 @@ func _process(_delta):
 	input_component.CheckInputs()
 
 	# For Debugging
-	overhead_label.text = str(velocity.x)
+	overhead_label.text = str(state_machine.current_state)
 
 func _physics_process(_delta):
 	pass

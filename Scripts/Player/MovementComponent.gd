@@ -24,7 +24,7 @@ var fall_time: float = 0.0
 
 @export_category("Wall Movement")
 @export var wall_slide_speed: float = 30.0
-@export var wall_jump_velocity: Vector2 = Vector2(100, -250) # Up and Out
+@export var wall_jump_velocity: Vector2 = Vector2(150, -250) # Up and Out
 var wall_jump_lockout: float = 0.0
 
 # Calculated once when the node is ready
