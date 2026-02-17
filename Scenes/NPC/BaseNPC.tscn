@@ -4,9 +4,33 @@
 [ext_resource type="Texture2D" uid="uid://mdde8en3xxf6" path="res://Assets/NPC/BodyTypes/FemaleSkin1.png" id="1_ldxtu"]
 [ext_resource type="Texture2D" uid="uid://cwh7oltkj274h" path="res://Assets/NPC/FemaleClothing/BlueCorset.png" id="2_3odjx"]
 [ext_resource type="Texture2D" uid="uid://c602q7lqxdibk" path="res://Assets/NPC/FemaleClothing/Boots.png" id="3_7po00"]
+[ext_resource type="Texture2D" uid="uid://ch20qvhbgthuw" path="res://Assets/NPC/BodyTypes/FemaleSkin2.png" id="3_v6xhw"]
+[ext_resource type="Texture2D" uid="uid://biprnhq83rrkw" path="res://Assets/NPC/BodyTypes/FemaleSkin3.png" id="4_70fjh"]
 [ext_resource type="Texture2D" uid="uid://cvc31cl1sa1i4" path="res://Assets/NPC/FemaleClothing/Skirt.png" id="4_ijrh4"]
+[ext_resource type="Texture2D" uid="uid://qcsrqacmsdft" path="res://Assets/NPC/BodyTypes/FemaleSkin4.png" id="5_7am4n"]
 [ext_resource type="Texture2D" uid="uid://c3tdgs7d7ydh1" path="res://Assets/NPC/FemaleHair/FemaleHair1.png" id="5_neann"]
+[ext_resource type="Texture2D" uid="uid://cx87xujdar5si" path="res://Assets/NPC/BodyTypes/FemaleSkin5.png" id="6_ouqks"]
 [ext_resource type="Texture2D" uid="uid://b24b21sepfmyb" path="res://Assets/NPC/FemaleHand/FemaleSword.png" id="6_yefpa"]
+[ext_resource type="Texture2D" uid="uid://dljg75e8dan5p" path="res://Assets/NPC/FemaleHair/FemaleHair2.png" id="8_uarom"]
+[ext_resource type="Texture2D" uid="uid://cnjttit5hrpn4" path="res://Assets/NPC/FemaleHair/FemaleHair3.png" id="9_01rtg"]
+[ext_resource type="Texture2D" uid="uid://bbgqls8xmspou" path="res://Assets/NPC/FemaleHair/FemaleHair4.png" id="10_gnwrr"]
+[ext_resource type="Texture2D" uid="uid://bhvi8chn3jbdi" path="res://Assets/NPC/FemaleHair/FemaleHair5.png" id="11_2llxw"]
+[ext_resource type="Texture2D" uid="uid://osvbelnvc66f" path="res://Assets/NPC/FemaleClothing/BlueCorsetv2.png" id="13_cp41b"]
+[ext_resource type="Texture2D" uid="uid://b1dippd401i4e" path="res://Assets/NPC/FemaleClothing/Corset.png" id="14_ox480"]
+[ext_resource type="Texture2D" uid="uid://b1cwxslcnu45o" path="res://Assets/NPC/FemaleClothing/Corsetv2.png" id="15_1l4kq"]
+[ext_resource type="Texture2D" uid="uid://der4na5dl2xgh" path="res://Assets/NPC/FemaleClothing/GreenCorset.png" id="16_divqb"]
+[ext_resource type="Texture2D" uid="uid://do3xc8t7q5xl" path="res://Assets/NPC/FemaleClothing/GreenCorsetv2.png" id="17_m6v0l"]
+[ext_resource type="Texture2D" uid="uid://doggj10rvasts" path="res://Assets/NPC/FemaleClothing/OrangeCorset.png" id="18_njdd4"]
+[ext_resource type="Texture2D" uid="uid://clfv32ovfsyi7" path="res://Assets/NPC/FemaleClothing/OrangeCorsetv2.png" id="19_iowwe"]
+[ext_resource type="Texture2D" uid="uid://cq62em2vqty3" path="res://Assets/NPC/FemaleClothing/PurpleCorset.png" id="20_q43s6"]
+[ext_resource type="Texture2D" uid="uid://vmat0g6favxb" path="res://Assets/NPC/FemaleClothing/PurpleCorsetv2.png" id="21_oiacq"]
+[ext_resource type="Texture2D" uid="uid://dkv4lgod1gmdb" path="res://Assets/NPC/FemaleClothing/GreenSocks.png" id="29_eh07x"]
+[ext_resource type="Texture2D" uid="uid://cllfdujxqxlne" path="res://Assets/NPC/FemaleClothing/OrangeSocks.png" id="30_idnbb"]
+[ext_resource type="Texture2D" uid="uid://duvh70xk6qqmw" path="res://Assets/NPC/FemaleClothing/PurpleSocks.png" id="31_v6wk3"]
+[ext_resource type="Texture2D" uid="uid://dxjrj1yb7okgp" path="res://Assets/NPC/FemaleClothing/RedSocks.png" id="32_y3j87"]
+[ext_resource type="Texture2D" uid="uid://dafk083ykv7cx" path="res://Assets/NPC/FemaleClothing/SkyblueSocks.png" id="33_mh6r1"]
+[ext_resource type="Texture2D" uid="uid://dvq3o7vtoj64t" path="res://Assets/NPC/FemaleClothing/Socks.png" id="34_8pp7m"]
+[ext_resource type="Texture2D" uid="uid://c6lvaoyls8kn1" path="res://Assets/NPC/MaleClothing/Shoes.png" id="35_81c5c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7p5j"]
 size = Vector2(7.5000005, 27.499998)
@@ -31,7 +55,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BaseNPC/Pivot/ClothingShirtSprite:frame")
+tracks/1/path = NodePath("BaseNPC/Pivot/ClothingTopSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -55,7 +79,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BaseNPC/Pivot/ClothingPantsSprite:frame")
+tracks/3/path = NodePath("BaseNPC/Pivot/ClothingBottomSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -106,7 +130,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BaseNPC/Pivot/ClothingShirtSprite:frame")
+tracks/1/path = NodePath("BaseNPC/Pivot/ClothingTopSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -130,7 +154,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BaseNPC/Pivot/ClothingPantsSprite:frame")
+tracks/3/path = NodePath("BaseNPC/Pivot/ClothingBottomSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -184,7 +208,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BaseNPC/Pivot/ClothingShirtSprite:frame")
+tracks/1/path = NodePath("BaseNPC/Pivot/ClothingTopSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -208,7 +232,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BaseNPC/Pivot/ClothingPantsSprite:frame")
+tracks/3/path = NodePath("BaseNPC/Pivot/ClothingBottomSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -249,7 +273,7 @@ _data = {
 &"WalkNPC": SubResource("Animation_7po00")
 }
 
-[node name="BaseNPC" type="CharacterBody2D" unique_id=1200533241 node_paths=PackedStringArray("pivot", "wall_check_head", "wall_check_feet", "ledge_check", "animation_player")]
+[node name="BaseNPC" type="CharacterBody2D" unique_id=1200533241 node_paths=PackedStringArray("pivot", "wall_check_head", "wall_check_feet", "ledge_check", "animation_player", "body_sprite", "hair_sprite", "clothes_top_sprite", "clothes_bottom_sprite", "shoes_sprite")]
 scale = Vector2(0.8, 0.8)
 collision_layer = 8
 collision_mask = 15
@@ -259,6 +283,16 @@ wall_check_head = NodePath("Pivot/WallCheckHead")
 wall_check_feet = NodePath("Pivot/WallCheckFeet")
 ledge_check = NodePath("Pivot/LedgeCheck")
 animation_player = NodePath("AnimationPlayer")
+body_sprites = Array[Texture2D]([ExtResource("1_ldxtu"), ExtResource("3_v6xhw"), ExtResource("4_70fjh"), ExtResource("5_7am4n"), ExtResource("6_ouqks")])
+hair_sprites = Array[Texture2D]([ExtResource("5_neann"), ExtResource("8_uarom"), ExtResource("9_01rtg"), ExtResource("10_gnwrr"), ExtResource("11_2llxw")])
+clothes_top_sprites = Array[Texture2D]([ExtResource("2_3odjx"), ExtResource("13_cp41b"), ExtResource("14_ox480"), ExtResource("15_1l4kq"), ExtResource("16_divqb"), ExtResource("17_m6v0l"), ExtResource("18_njdd4"), ExtResource("19_iowwe"), ExtResource("20_q43s6"), ExtResource("21_oiacq")])
+clothes_bottom_sprites = Array[Texture2D]([ExtResource("4_ijrh4")])
+shoes_sprites = Array[Texture2D]([ExtResource("3_7po00"), ExtResource("29_eh07x"), ExtResource("30_idnbb"), ExtResource("31_v6wk3"), ExtResource("32_y3j87"), ExtResource("33_mh6r1"), ExtResource("34_8pp7m"), ExtResource("35_81c5c")])
+body_sprite = NodePath("Pivot/BodySprite")
+hair_sprite = NodePath("Pivot/HairSprite")
+clothes_top_sprite = NodePath("Pivot/ClothingTopSprite")
+clothes_bottom_sprite = NodePath("Pivot/ClothingBottomSprite")
+shoes_sprite = NodePath("Pivot/ClothingShoesSprite")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2076938377]
 position = Vector2(-2.980231e-07, 18.749992)
@@ -277,7 +311,7 @@ texture = ExtResource("1_ldxtu")
 hframes = 10
 vframes = 7
 
-[node name="ClothingShirtSprite" type="Sprite2D" parent="Pivot" unique_id=329818544]
+[node name="ClothingTopSprite" type="Sprite2D" parent="Pivot" unique_id=329818544]
 texture = ExtResource("2_3odjx")
 hframes = 10
 vframes = 7
@@ -287,7 +321,7 @@ texture = ExtResource("3_7po00")
 hframes = 10
 vframes = 7
 
-[node name="ClothingPantsSprite" type="Sprite2D" parent="Pivot" unique_id=1619963049]
+[node name="ClothingBottomSprite" type="Sprite2D" parent="Pivot" unique_id=1619963049]
 texture = ExtResource("4_ijrh4")
 hframes = 10
 vframes = 7
@@ -298,6 +332,7 @@ hframes = 10
 vframes = 7
 
 [node name="WeaponSprite" type="Sprite2D" parent="Pivot" unique_id=407580036]
+visible = false
 texture = ExtResource("6_yefpa")
 hframes = 10
 vframes = 7

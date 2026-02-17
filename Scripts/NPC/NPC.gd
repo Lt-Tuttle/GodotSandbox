@@ -18,6 +18,21 @@ extends CharacterBody2D
 @export var ledge_check: RayCast2D
 @export var animation_player: AnimationPlayer
 
+@export_category("Sprite Sheets")
+@export var body_sprites: Array[Texture2D]
+@export var hair_sprites: Array[Texture2D]
+@export var clothes_top_sprites: Array[Texture2D]
+@export var clothes_bottom_sprites: Array[Texture2D]
+@export var shoes_sprites: Array[Texture2D]
+
+@export_category("Sprite Nodes")
+@export var body_sprite: Sprite2D
+@export var hair_sprite: Sprite2D
+@export var clothes_top_sprite: Sprite2D
+@export var clothes_bottom_sprite: Sprite2D
+@export var shoes_sprite: Sprite2D
+
+
 enum NPCState { IDLE, WALK }
 var current_state: NPCState = NPCState.IDLE
 var state_timer: float = 0.0
@@ -26,6 +41,7 @@ var current_speed: float = 0.0
 var direction: Vector2 = Vector2.LEFT # Default facing left
 
 func _ready() -> void:
+	randomize_appearance()
 	# Start with a random state
 	pick_new_state()
 
@@ -94,3 +110,19 @@ func flip_direction() -> void:
 	
 	if pivot:
 		pivot.scale.x *= -1
+
+func randomize_appearance() -> void:
+	if body_sprites.size() > 0 and body_sprite:
+		body_sprite.texture = body_sprites.pick_random()
+	
+	if hair_sprites.size() > 0 and hair_sprite:
+		hair_sprite.texture = hair_sprites.pick_random()
+		
+	if clothes_top_sprites.size() > 0 and clothes_top_sprite:
+		clothes_top_sprite.texture = clothes_top_sprites.pick_random()
+		
+	if clothes_bottom_sprites.size() > 0 and clothes_bottom_sprite:
+		clothes_bottom_sprite.texture = clothes_bottom_sprites.pick_random()
+		
+	if shoes_sprites.size() > 0 and shoes_sprite:
+		shoes_sprite.texture = shoes_sprites.pick_random()

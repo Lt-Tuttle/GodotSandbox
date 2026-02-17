@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://bf6q76bjuad0j"]
 
 [ext_resource type="PackedScene" uid="uid://bri27qbdftd3y" path="res://Scenes/Player/Player.tscn" id="1_hl7fj"]
-[ext_resource type="Texture2D" uid="uid://cegcju2pgf27k" path="res://Assets/Environment/Tilesets/DirtTiles1.png" id="1_whr1g"]
-[ext_resource type="Texture2D" uid="uid://vf5wpl3q4xiq" path="res://Assets/Environment/Tilesets/FloorTiles1.png" id="2_c6mje"]
+[ext_resource type="Texture2D" uid="uid://cegcju2pgf27k" path="res://Assets/Environment/TileSets/DirtTiles1.png" id="1_whr1g"]
+[ext_resource type="Texture2D" uid="uid://vf5wpl3q4xiq" path="res://Assets/Environment/TileSets/FloorTiles1.png" id="2_c6mje"]
 [ext_resource type="Texture2D" uid="uid://v5g7nt0i8sp7" path="res://Assets/Environment/Backgrounds/Autumn/AutmnBackgroundLayer5.png" id="4_05b6i"]
 [ext_resource type="Texture2D" uid="uid://73ftddma8fnf" path="res://Assets/Environment/Backgrounds/Autumn/AutmnBackgroundLayer4.png" id="5_ok18h"]
 [ext_resource type="Texture2D" uid="uid://b6qfeowd7f42u" path="res://Assets/Environment/Backgrounds/Autumn/AutmnBackgroundLayer3.png" id="6_dymvn"]
@@ -1298,5 +1298,7 @@ motion_mirroring = Vector2(1024, 0)
 texture = ExtResource("8_ro5n4")
 centered = false
 
-[node name="BaseNPC" parent="." unique_id=1200533241 instance=ExtResource("9_mhgfk")]
-position = Vector2(94, -32)
+[node name="NPC" type="Node2D" parent="." unique_id=72818268]
+
+[node name="BaseNPC" parent="NPC" unique_id=1200533241 instance=ExtResource("9_mhgfk")]
+position = Vector2(95, -35)
