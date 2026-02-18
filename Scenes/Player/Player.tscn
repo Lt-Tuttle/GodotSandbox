@@ -86,7 +86,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Pivot/AttackHitbox/AttackHitboxCollisionShape:disabled")
+tracks/3/path = NodePath("Pivot/AttackHurtbox/AttackHitboxCollisionShape:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -220,7 +220,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Pivot/CrouchAttackHitbox/CrouchHitboxCollisionShape:disabled")
+tracks/3/path = NodePath("Pivot/CrouchAttackHurtbox/CrouchHitboxCollisionShape:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -801,7 +801,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Pivot/AttackHitbox/AttackHitboxCollisionShape:disabled")
+tracks/3/path = NodePath("Pivot/AttackHurtbox/AttackHitboxCollisionShape:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -813,7 +813,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Pivot/CrouchAttackHitbox/CrouchHitboxCollisionShape:disabled")
+tracks/4/path = NodePath("Pivot/CrouchAttackHurtbox/CrouchHitboxCollisionShape:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -1159,10 +1159,10 @@ ledge_check = NodePath("Pivot/LedgeCheck")
 ledge_top_check = NodePath("Pivot/LedgeTopCheck")
 grab_position = NodePath("Pivot/GrabPosition")
 ground_check = NodePath("Pivot/GroundCheck")
-attack_hitbox = NodePath("Pivot/AttackHitbox")
-crouch_attack_hitbox = NodePath("Pivot/CrouchAttackHitbox")
-attack_hitbox_collision_shape = NodePath("Pivot/AttackHitbox/AttackHitboxCollisionShape")
-crouch_hitbox_collision_shape = NodePath("Pivot/CrouchAttackHitbox/CrouchHitboxCollisionShape")
+attack_hitbox = NodePath("Pivot/AttackHurtbox")
+crouch_attack_hitbox = NodePath("Pivot/CrouchAttackHurtbox")
+attack_hitbox_collision_shape = NodePath("Pivot/AttackHurtbox/AttackHitboxCollisionShape")
+crouch_hitbox_collision_shape = NodePath("Pivot/CrouchAttackHurtbox/CrouchHitboxCollisionShape")
 collision_shape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1185868346]
@@ -1237,23 +1237,23 @@ script = ExtResource("39_hjq2i")
 
 [node name="Pivot" type="Node2D" parent="." unique_id=1484773671]
 
-[node name="CrouchAttackHitbox" type="Area2D" parent="Pivot" unique_id=1002764058]
+[node name="CrouchAttackHurtbox" type="Area2D" parent="Pivot" unique_id=1002764058]
 position = Vector2(30, -15)
 rotation = 1.5707964
 scale = Vector2(0.75, 1)
 collision_layer = 0
 collision_mask = 4
 
-[node name="CrouchHitboxCollisionShape" type="CollisionShape2D" parent="Pivot/CrouchAttackHitbox" unique_id=615131045]
+[node name="CrouchHitboxCollisionShape" type="CollisionShape2D" parent="Pivot/CrouchAttackHurtbox" unique_id=615131045]
 shape = SubResource("CapsuleShape2D_wid83")
 
-[node name="AttackHitbox" type="Area2D" parent="Pivot" unique_id=1537216102]
+[node name="AttackHurtbox" type="Area2D" parent="Pivot" unique_id=1537216102]
 position = Vector2(45, -20)
 rotation = 1.5707964
 collision_layer = 0
 collision_mask = 4
 
-[node name="AttackHitboxCollisionShape" type="CollisionShape2D" parent="Pivot/AttackHitbox" unique_id=1915550594]
+[node name="AttackHitboxCollisionShape" type="CollisionShape2D" parent="Pivot/AttackHurtbox" unique_id=1915550594]
 shape = SubResource("CapsuleShape2D_wid83")
 
 [node name="Sprite2D" type="Sprite2D" parent="Pivot" unique_id=704491435]

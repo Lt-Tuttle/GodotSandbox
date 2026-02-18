@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://urmvi04kpp70" path="res://Assets/Environment/Backgrounds/Autumn/AutmnBackgroundLayer2.png" id="7_mhgfk"]
 [ext_resource type="Texture2D" uid="uid://bkn8kq6elmpe7" path="res://Assets/Environment/Backgrounds/Autumn/AutmnBackgroundLayer1.png" id="8_ro5n4"]
 [ext_resource type="PackedScene" uid="uid://cg6bgrmyw4hc3" path="res://Scenes/NPC/BaseNPC.tscn" id="9_mhgfk"]
+[ext_resource type="PackedScene" uid="uid://smjrh0c8iwh8" path="res://Scenes/Enemies/Skeleton.tscn" id="10_ro5n4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c6mje"]
 texture = ExtResource("1_whr1g")
@@ -1302,3 +1303,6 @@ centered = false
 
 [node name="BaseNPC" parent="NPC" unique_id=1200533241 instance=ExtResource("9_mhgfk")]
 position = Vector2(95, -35)
+
+[node name="Skeleton" parent="." unique_id=599377910 instance=ExtResource("10_ro5n4")]
+position = Vector2(385, -47)
