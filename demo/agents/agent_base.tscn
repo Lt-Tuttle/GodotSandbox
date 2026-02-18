@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ooigbfhfy4wa"]
+[gd_scene format=3 uid="uid://ooigbfhfy4wa"]
 
 [ext_resource type="Texture2D" uid="uid://dlo1ine6p5di4" path="res://demo/assets/agent_bobby.png" id="1_1u51b"]
 [ext_resource type="Script" uid="uid://68wbhtvlbkqm" path="res://demo/agents/scripts/agent_base.gd" id="1_n8vy2"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt2jlrqffpyw"]
+[gd_scene format=3 uid="uid://dt2jlrqffpyw"]
 
 [ext_resource type="Texture2D" uid="uid://65b6yuobhxf8" path="res://demo/assets/env_clouds.png" id="1_eigiy"]
 

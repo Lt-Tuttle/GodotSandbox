@@ -1,0 +1,33 @@
+[gd_resource type="BehaviorTree" format=3 uid="uid://dfpi351g18025"]
+
+[ext_resource type="Script" uid="uid://5y6evltd1l41" path="res://ai/tasks/task_get_player.gd" id="1_yavd7"]
+[ext_resource type="Script" uid="uid://uy02nbnah4gw" path="res://ai/tasks/in_range.gd" id="2_yavd7"]
+[ext_resource type="Script" uid="uid://d3vef165wsro6" path="res://ai/tasks/face_target.gd" id="3_wpo1w"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_dkrs2"]
+
+[sub_resource type="BTAction" id="BTAction_6much"]
+script = ExtResource("1_yavd7")
+group = &"player"
+
+[sub_resource type="BTRunLimit" id="BTRunLimit_mrn7e"]
+children = [SubResource("BTAction_6much")]
+
+[sub_resource type="BTCondition" id="BTCondition_wpo1w"]
+script = ExtResource("2_yavd7")
+distance_max = 200.0
+
+[sub_resource type="BTAction" id="BTAction_s0jor"]
+script = ExtResource("3_wpo1w")
+
+[sub_resource type="BTCooldown" id="BTCooldown_k57i4"]
+duration = 5.0
+children = [SubResource("BTCondition_wpo1w"), SubResource("BTAction_s0jor")]
+
+[sub_resource type="BTSelector" id="BTSelector_6much"]
+custom_name = "Root"
+children = [SubResource("BTRunLimit_mrn7e"), SubResource("BTCooldown_k57i4")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_dkrs2")
+root_task = SubResource("BTSelector_6much")

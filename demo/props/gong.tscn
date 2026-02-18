@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpd1wmw2f7bvg"]
+[gd_scene format=3 uid="uid://bpd1wmw2f7bvg"]
 
 [ext_resource type="Script" uid="uid://d3cmj6skb7k07" path="res://demo/props/gong.gd" id="1_77c1i"]
 [ext_resource type="Texture2D" uid="uid://i476iia1ua8q" path="res://demo/assets/env_gong.png" id="1_kbnv6"]

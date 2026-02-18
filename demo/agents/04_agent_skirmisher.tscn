@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://co6yeafaljbq0"]
+[gd_scene format=3 uid="uid://co6yeafaljbq0"]
 
 [ext_resource type="PackedScene" uid="uid://ooigbfhfy4wa" path="res://demo/agents/agent_base.tscn" id="1_2ir76"]
 [ext_resource type="Texture2D" uid="uid://l042ovqqsy3l" path="res://demo/assets/agent_skirmisher.png" id="2_w8tqw"]

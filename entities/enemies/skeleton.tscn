@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://btm4hcemwpe24"]
 
 [ext_resource type="Texture2D" uid="uid://dyoiyqdr71ypb" path="res://assets/Enemies/Skeleton/SkeletonAttack.png" id="1_kx4xq"]
-[ext_resource type="BehaviorTree" uid="uid://dfpi351g18025" path="res://ai/basic_enemy.tres" id="2_56m75"]
+[ext_resource type="BehaviorTree" uid="uid://dfpi351g18025" path="res://ai/trees/basic_enemy.tres" id="2_56m75"]
 [ext_resource type="Script" uid="uid://opidcsxhww4g" path="res://components/health_component.gd" id="5_i43q3"]
 [ext_resource type="Script" uid="uid://bqd5x2n61rprs" path="res://entities/player/movement_component.gd" id="6_4agy0"]
 [ext_resource type="Texture2D" uid="uid://bndovw4r4si5v" path="res://assets/Enemies/Skeleton/SkeletonIdle.png" id="31_4tm7w"]
