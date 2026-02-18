@@ -11,18 +11,13 @@ config_version=5
 [application]
 
 config/name="GodotSandbox"
-run/main_scene="uid://bf6q76bjuad0j"
+run/main_scene="res://levels/overworld.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 
 [display]
 
 window/size/mode=2
 window/vsync/vsync_mode=0
-
-[editor]
-
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
 
 [global_group]
 
