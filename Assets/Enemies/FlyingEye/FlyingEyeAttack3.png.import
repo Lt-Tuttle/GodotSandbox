@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://byyqjfh33a0i0"
-path="res://.godot/imported/FlyingEyeAttack3.png-0cc62e0c5c459b6f1c98e3a5b604196b.ctex"
+path="res://.godot/imported/FlyingEyeAttack3.png-e8b53ad6391d39f5ec79ee76a156f776.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/FlyingEye/FlyingEyeAttack3.png"
-dest_files=["res://.godot/imported/FlyingEyeAttack3.png-0cc62e0c5c459b6f1c98e3a5b604196b.ctex"]
+source_file="res://assets/Enemies/FlyingEye/FlyingEyeAttack3.png"
+dest_files=["res://.godot/imported/FlyingEyeAttack3.png-e8b53ad6391d39f5ec79ee76a156f776.ctex"]
 
 [params]
 

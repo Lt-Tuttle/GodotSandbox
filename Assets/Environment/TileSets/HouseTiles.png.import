@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2mvrg6u6pbl2"
-path="res://.godot/imported/HouseTiles.png-43a71766bffd7472fa6846eb5f6df9ba.ctex"
+path="res://.godot/imported/HouseTiles.png-71e4edd325da1135366be25c27461a8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/Tilesets/HouseTiles.png"
-dest_files=["res://.godot/imported/HouseTiles.png-43a71766bffd7472fa6846eb5f6df9ba.ctex"]
+source_file="res://assets/Environment/Tilesets/HouseTiles.png"
+dest_files=["res://.godot/imported/HouseTiles.png-71e4edd325da1135366be25c27461a8a.ctex"]
 
 [params]
 

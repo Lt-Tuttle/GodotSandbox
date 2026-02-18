@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsgpcex32rovr"
-path="res://.godot/imported/PlayerDash.png-013ad89283d81c8a7ff3059b36daacdc.ctex"
+path="res://.godot/imported/PlayerDash.png-553ff03c8558f3a266a2ed650f2df825.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/PlayerDash.png"
-dest_files=["res://.godot/imported/PlayerDash.png-013ad89283d81c8a7ff3059b36daacdc.ctex"]
+source_file="res://assets/Player/PlayerDash.png"
+dest_files=["res://.godot/imported/PlayerDash.png-553ff03c8558f3a266a2ed650f2df825.ctex"]
 
 [params]
 

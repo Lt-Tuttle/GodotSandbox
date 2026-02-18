@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://73ftddma8fnf"
-path="res://.godot/imported/AutmnBackgroundLayer4.png-c0327d5984f59971515f0cda0fcebfd9.ctex"
+path="res://.godot/imported/AutmnBackgroundLayer4.png-c29acb3ea453ca9ba4da5f9b0b384acf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/Backgrounds/Autumn/AutmnBackgroundLayer4.png"
-dest_files=["res://.godot/imported/AutmnBackgroundLayer4.png-c0327d5984f59971515f0cda0fcebfd9.ctex"]
+source_file="res://assets/Environment/Backgrounds/Autumn/AutmnBackgroundLayer4.png"
+dest_files=["res://.godot/imported/AutmnBackgroundLayer4.png-c29acb3ea453ca9ba4da5f9b0b384acf.ctex"]
 
 [params]
 

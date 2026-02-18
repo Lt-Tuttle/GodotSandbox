@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://osvbelnvc66f"
-path="res://.godot/imported/BlueCorsetv2.png-92dbe03fa6be2b853ebeb761e45e5388.ctex"
+path="res://.godot/imported/BlueCorsetv2.png-74e2290bc42ebb82f19d31643e6cd776.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/NPC/FemaleClothing/BlueCorsetv2.png"
-dest_files=["res://.godot/imported/BlueCorsetv2.png-92dbe03fa6be2b853ebeb761e45e5388.ctex"]
+source_file="res://assets/NPC/FemaleClothing/BlueCorsetv2.png"
+dest_files=["res://.godot/imported/BlueCorsetv2.png-74e2290bc42ebb82f19d31643e6cd776.ctex"]
 
 [params]
 

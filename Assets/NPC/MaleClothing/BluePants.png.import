@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bb4d0egm7mlb6"
-path="res://.godot/imported/BluePants.png-8bea1dd131ff8f258e9f517f1a9ba493.ctex"
+path="res://.godot/imported/BluePants.png-cf07b237f03ff50f5cfaea4cc6ca4756.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/NPC/MaleClothing/BluePants.png"
-dest_files=["res://.godot/imported/BluePants.png-8bea1dd131ff8f258e9f517f1a9ba493.ctex"]
+source_file="res://assets/NPC/MaleClothing/BluePants.png"
+dest_files=["res://.godot/imported/BluePants.png-cf07b237f03ff50f5cfaea4cc6ca4756.ctex"]
 
 [params]
 

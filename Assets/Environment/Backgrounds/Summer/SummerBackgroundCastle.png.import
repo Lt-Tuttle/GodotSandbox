@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddgtsvm8ae3qh"
-path="res://.godot/imported/SummerBackgroundCastle.png-22f39950e188b10a31621cc58de80de5.ctex"
+path="res://.godot/imported/SummerBackgroundCastle.png-111e523e74c01361de9b4130c096b595.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/Backgrounds/Summer/SummerBackgroundCastle.png"
-dest_files=["res://.godot/imported/SummerBackgroundCastle.png-22f39950e188b10a31621cc58de80de5.ctex"]
+source_file="res://assets/Environment/Backgrounds/Summer/SummerBackgroundCastle.png"
+dest_files=["res://.godot/imported/SummerBackgroundCastle.png-111e523e74c01361de9b4130c096b595.ctex"]
 
 [params]
 

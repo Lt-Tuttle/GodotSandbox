@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpr1kxir5bf77"
-path="res://.godot/imported/PlayerTurnAround.png-620f12f708de317e35ea5fb28f283b6a.ctex"
+path="res://.godot/imported/PlayerTurnAround.png-d21c98ace806e472ac6c00916fb0d943.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/PlayerTurnAround.png"
-dest_files=["res://.godot/imported/PlayerTurnAround.png-620f12f708de317e35ea5fb28f283b6a.ctex"]
+source_file="res://assets/Player/PlayerTurnAround.png"
+dest_files=["res://.godot/imported/PlayerTurnAround.png-d21c98ace806e472ac6c00916fb0d943.ctex"]
 
 [params]
 

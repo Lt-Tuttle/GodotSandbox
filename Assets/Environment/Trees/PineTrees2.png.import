@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vpp5p2vxtf2o"
-path="res://.godot/imported/PineTrees2.png-fa6902d7ec7950e9a7cba0215518e6e0.ctex"
+path="res://.godot/imported/PineTrees2.png-f00fa379d58262fff4cf9628bba42078.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/Trees/PineTrees2.png"
-dest_files=["res://.godot/imported/PineTrees2.png-fa6902d7ec7950e9a7cba0215518e6e0.ctex"]
+source_file="res://assets/Environment/Trees/PineTrees2.png"
+dest_files=["res://.godot/imported/PineTrees2.png-f00fa379d58262fff4cf9628bba42078.ctex"]
 
 [params]
 

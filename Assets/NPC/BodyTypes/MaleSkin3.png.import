@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://yf31ak2pkqbp"
-path="res://.godot/imported/MaleSkin3.png-5e92a8447311c2ed62cf7642dfd7e296.ctex"
+path="res://.godot/imported/MaleSkin3.png-fb96ecd64c5486b04749dd99f1de4d0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/NPC/BodyTypes/MaleSkin3.png"
-dest_files=["res://.godot/imported/MaleSkin3.png-5e92a8447311c2ed62cf7642dfd7e296.ctex"]
+source_file="res://assets/NPC/BodyTypes/MaleSkin3.png"
+dest_files=["res://.godot/imported/MaleSkin3.png-fb96ecd64c5486b04749dd99f1de4d0a.ctex"]
 
 [params]
 

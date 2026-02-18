@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkv4lgod1gmdb"
-path="res://.godot/imported/GreenSocks.png-9befffaf9f2414859131a5bc1523dff4.ctex"
+path="res://.godot/imported/GreenSocks.png-1902184da83e486097276281361a4a18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/NPC/FemaleClothing/GreenSocks.png"
-dest_files=["res://.godot/imported/GreenSocks.png-9befffaf9f2414859131a5bc1523dff4.ctex"]
+source_file="res://assets/NPC/FemaleClothing/GreenSocks.png"
+dest_files=["res://.godot/imported/GreenSocks.png-1902184da83e486097276281361a4a18.ctex"]
 
 [params]
 

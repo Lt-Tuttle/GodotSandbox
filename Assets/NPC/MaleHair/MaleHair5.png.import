@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsfx7n8vaat8t"
-path="res://.godot/imported/MaleHair5.png-da8ae22dcd55770463980fc69768e037.ctex"
+path="res://.godot/imported/MaleHair5.png-47865685c1a9f77399746b9e698a54f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/NPC/MaleHair/MaleHair5.png"
-dest_files=["res://.godot/imported/MaleHair5.png-da8ae22dcd55770463980fc69768e037.ctex"]
+source_file="res://assets/NPC/MaleHair/MaleHair5.png"
+dest_files=["res://.godot/imported/MaleHair5.png-47865685c1a9f77399746b9e698a54f7.ctex"]
 
 [params]
 

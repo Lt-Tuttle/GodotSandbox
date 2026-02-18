@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cg5764cut2w2j"
-path="res://.godot/imported/OrangePantiesAndBra.png-9ad6eea0a5ff0b214f504f17a3466a18.ctex"
+path="res://.godot/imported/OrangePantiesAndBra.png-19f77d48cf6ea000d6918fe256fae80a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/NPC/FemaleClothing/OrangePantiesAndBra.png"
-dest_files=["res://.godot/imported/OrangePantiesAndBra.png-9ad6eea0a5ff0b214f504f17a3466a18.ctex"]
+source_file="res://assets/NPC/FemaleClothing/OrangePantiesAndBra.png"
+dest_files=["res://.godot/imported/OrangePantiesAndBra.png-19f77d48cf6ea000d6918fe256fae80a.ctex"]
 
 [params]
 

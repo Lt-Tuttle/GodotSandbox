@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6oc5g1ordvti"
-path="res://.godot/imported/FlyingEyeFlight.png-24207f8f87b8aef11c9d3b60d8de4b22.ctex"
+path="res://.godot/imported/FlyingEyeFlight.png-fb729c6437f1170b71d8fc930615c7d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/FlyingEye/FlyingEyeFlight.png"
-dest_files=["res://.godot/imported/FlyingEyeFlight.png-24207f8f87b8aef11c9d3b60d8de4b22.ctex"]
+source_file="res://assets/Enemies/FlyingEye/FlyingEyeFlight.png"
+dest_files=["res://.godot/imported/FlyingEyeFlight.png-fb729c6437f1170b71d8fc930615c7d5.ctex"]
 
 [params]
 

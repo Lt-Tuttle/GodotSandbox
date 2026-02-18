@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://pxgdg1mv467v"
-path="res://.godot/imported/GoblinIdle.png-66efb07da73f8df05a97d67cd4df9f28.ctex"
+path="res://.godot/imported/GoblinIdle.png-ec72f54bdf9afe94fecb19bb418378fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Goblin/GoblinIdle.png"
-dest_files=["res://.godot/imported/GoblinIdle.png-66efb07da73f8df05a97d67cd4df9f28.ctex"]
+source_file="res://assets/Enemies/Goblin/GoblinIdle.png"
+dest_files=["res://.godot/imported/GoblinIdle.png-ec72f54bdf9afe94fecb19bb418378fd.ctex"]
 
 [params]
 

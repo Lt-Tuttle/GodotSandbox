@@ -1,44 +1,44 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dkf41ihtuofqe"]
 
-[ext_resource type="Script" path="res://entities/player/player.gd" id="1_kyqiw"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerIdle.png" id="2_jmcll"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerRun.png" id="3_4wape"]
-[ext_resource type="Script" path="res://entities/player/movement_component.gd" id="3_gntrk"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerAttack.png" id="3_ji083"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerFall.png" id="3_t26db"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerCrouch.png" id="4_0u84n"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerAttack2.png" id="4_6tu5v"]
-[ext_resource type="Script" path="res://entities/player/input_component.gd" id="4_dewec"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerJump.png" id="4_fk5o5"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerJumpPeak.png" id="5_825xp"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerCrouchTransition.png" id="5_esmjy"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerCrouchWalk.png" id="6_esmjy"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerCrouchAttack.png" id="6_r6t50"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerRoll.png" id="7_0kmp4"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerDash.png" id="8_1e6p3"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerDeath.png" id="9_io2mu"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerTurnAround.png" id="11_6tu5v"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerHit.png" id="11_e5iqy"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerSlide.png" id="14_yb677"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerSlideEnd.png" id="15_8cj01"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerSlideStart.png" id="16_i2g7t"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerWallClimbNoMovement.png" id="19_e5iqy"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerWallHang.png" id="20_8t5qx"]
-[ext_resource type="Texture2D" path="res://assets/Player/PlayerWallSlide.png" id="21_8rd5p"]
-[ext_resource type="Script" path="res://entities/player/states/ground/state_idle.gd" id="26_7xdrn"]
-[ext_resource type="Script" path="res://entities/player/state_machine.gd" id="26_wwmao"]
-[ext_resource type="Script" path="res://entities/player/states/state_base.gd" id="27_6rswy"]
-[ext_resource type="Script" path="res://entities/player/states/ground/state_moving.gd" id="27_wid83"]
-[ext_resource type="Script" path="res://entities/player/states/air/state_jumping.gd" id="28_g7gci"]
-[ext_resource type="Script" path="res://entities/player/states/action/state_attacking.gd" id="29_r6t50"]
-[ext_resource type="Script" path="res://entities/player/states/ground/state_ground.gd" id="30_wid83"]
-[ext_resource type="Script" path="res://entities/player/states/action/state_roll.gd" id="31_g7gci"]
-[ext_resource type="Script" path="res://entities/player/states/air/state_air.gd" id="34_lw74r"]
-[ext_resource type="Script" path="res://entities/player/states/air/state_falling.gd" id="35_tf3ct"]
-[ext_resource type="Script" path="res://entities/player/states/ground/state_landing.gd" id="36_tf3ct"]
-[ext_resource type="Script" path="res://entities/player/states/wall/state_ledge_climb.gd" id="37_vrod0"]
-[ext_resource type="Script" path="res://entities/player/states/wall/state_ledge_grab.gd" id="38_fcbn2"]
-[ext_resource type="Script" path="res://entities/player/states/wall/state_wall_slide.gd" id="39_hjq2i"]
+[ext_resource type="Script" uid="uid://eodhhoohu3va" path="res://entities/player/player.gd" id="1_kyqiw"]
+[ext_resource type="Texture2D" uid="uid://dcewl36lcs37y" path="res://assets/Player/PlayerIdle.png" id="2_jmcll"]
+[ext_resource type="Texture2D" uid="uid://ts8l2ai64j3r" path="res://assets/Player/PlayerRun.png" id="3_4wape"]
+[ext_resource type="Script" uid="uid://bqd5x2n61rprs" path="res://entities/player/movement_component.gd" id="3_gntrk"]
+[ext_resource type="Texture2D" uid="uid://osmsil6wdd6n" path="res://assets/Player/PlayerAttack.png" id="3_ji083"]
+[ext_resource type="Texture2D" uid="uid://bspehyeoy5vmu" path="res://assets/Player/PlayerFall.png" id="3_t26db"]
+[ext_resource type="Texture2D" uid="uid://cv51m1clqxws0" path="res://assets/Player/PlayerCrouch.png" id="4_0u84n"]
+[ext_resource type="Texture2D" uid="uid://dhvahk2nhsisr" path="res://assets/Player/PlayerAttack2.png" id="4_6tu5v"]
+[ext_resource type="Script" uid="uid://dxbd334usst6u" path="res://entities/player/input_component.gd" id="4_dewec"]
+[ext_resource type="Texture2D" uid="uid://d2b7o43tfygir" path="res://assets/Player/PlayerJump.png" id="4_fk5o5"]
+[ext_resource type="Texture2D" uid="uid://cdgjai20k86jx" path="res://assets/Player/PlayerJumpPeak.png" id="5_825xp"]
+[ext_resource type="Texture2D" uid="uid://be0xraqocmml8" path="res://assets/Player/PlayerCrouchTransition.png" id="5_esmjy"]
+[ext_resource type="Texture2D" uid="uid://c2j1al2uqcg6x" path="res://assets/Player/PlayerCrouchWalk.png" id="6_esmjy"]
+[ext_resource type="Texture2D" uid="uid://c7gef6s8jjd44" path="res://assets/Player/PlayerCrouchAttack.png" id="6_r6t50"]
+[ext_resource type="Texture2D" uid="uid://b7l1pvb4trddc" path="res://assets/Player/PlayerRoll.png" id="7_0kmp4"]
+[ext_resource type="Texture2D" uid="uid://bsgpcex32rovr" path="res://assets/Player/PlayerDash.png" id="8_1e6p3"]
+[ext_resource type="Texture2D" uid="uid://de07spghdxnvt" path="res://assets/Player/PlayerDeath.png" id="9_io2mu"]
+[ext_resource type="Texture2D" uid="uid://dpr1kxir5bf77" path="res://assets/Player/PlayerTurnAround.png" id="11_6tu5v"]
+[ext_resource type="Texture2D" uid="uid://cp268rscsbpf8" path="res://assets/Player/PlayerHit.png" id="11_e5iqy"]
+[ext_resource type="Texture2D" uid="uid://cvjosiwif5453" path="res://assets/Player/PlayerSlide.png" id="14_yb677"]
+[ext_resource type="Texture2D" uid="uid://bgj25n4qtstxy" path="res://assets/Player/PlayerSlideEnd.png" id="15_8cj01"]
+[ext_resource type="Texture2D" uid="uid://byyursdvnh8kq" path="res://assets/Player/PlayerSlideStart.png" id="16_i2g7t"]
+[ext_resource type="Texture2D" uid="uid://7wqx2hokexxm" path="res://assets/Player/PlayerWallClimbNoMovement.png" id="19_e5iqy"]
+[ext_resource type="Texture2D" uid="uid://b7jluuvjmalwf" path="res://assets/Player/PlayerWallHang.png" id="20_8t5qx"]
+[ext_resource type="Texture2D" uid="uid://c3ae8ggt1ssh8" path="res://assets/Player/PlayerWallSlide.png" id="21_8rd5p"]
+[ext_resource type="Script" uid="uid://ccc2tdqm2deff" path="res://entities/player/states/ground/state_idle.gd" id="26_7xdrn"]
+[ext_resource type="Script" uid="uid://cu0x4tl8rlctx" path="res://entities/player/state_machine.gd" id="26_wwmao"]
+[ext_resource type="Script" uid="uid://b1u1ypvc8as3c" path="res://entities/player/states/state_base.gd" id="27_6rswy"]
+[ext_resource type="Script" uid="uid://bmuwgxt878e1w" path="res://entities/player/states/ground/state_moving.gd" id="27_wid83"]
+[ext_resource type="Script" uid="uid://cl2ovfyadg85f" path="res://entities/player/states/air/state_jumping.gd" id="28_g7gci"]
+[ext_resource type="Script" uid="uid://c8ek2362v5t4o" path="res://entities/player/states/action/state_attacking.gd" id="29_r6t50"]
+[ext_resource type="Script" uid="uid://c45llmm11f6ln" path="res://entities/player/states/ground/state_ground.gd" id="30_wid83"]
+[ext_resource type="Script" uid="uid://cg3jabguu50yo" path="res://entities/player/states/action/state_roll.gd" id="31_g7gci"]
+[ext_resource type="Script" uid="uid://b8x8pi8fvk8ft" path="res://entities/player/states/air/state_air.gd" id="34_lw74r"]
+[ext_resource type="Script" uid="uid://cfnff5do6531s" path="res://entities/player/states/air/state_falling.gd" id="35_tf3ct"]
+[ext_resource type="Script" uid="uid://cq0puxa4xffip" path="res://entities/player/states/ground/state_landing.gd" id="36_tf3ct"]
+[ext_resource type="Script" uid="uid://5xfnkr8c8aqd" path="res://entities/player/states/wall/state_ledge_climb.gd" id="37_vrod0"]
+[ext_resource type="Script" uid="uid://g6p7jf81toup" path="res://entities/player/states/wall/state_ledge_grab.gd" id="38_fcbn2"]
+[ext_resource type="Script" uid="uid://dk36758c3dw04" path="res://entities/player/states/wall/state_wall_slide.gd" id="39_hjq2i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_825xp"]
 size = Vector2(8, 28)
@@ -1143,7 +1143,7 @@ height = 44.0
 [sub_resource type="LabelSettings" id="LabelSettings_vrod0"]
 font_size = 10
 
-[node name="Player" type="CharacterBody2D" unique_id=1826747499 node_paths=PackedStringArray("input_component", "movement_component", "state_machine", "animation_player", "sprite_2d", "pivot", "overhead_label", "wall_check", "ledge_check", "ledge_top_check", "grab_position", "ground_check", "attack_hitbox", "crouch_attack_hitbox", "attack_hitbox_collision_shape", "crouch_hitbox_collision_shape", "collision_shape")]
+[node name="Player" type="CharacterBody2D" unique_id=1826747499 node_paths=PackedStringArray("input_component", "movement_component", "state_machine", "animation_player", "sprite_2d", "pivot", "overhead_label", "wall_check", "ledge_check", "ledge_top_check", "grab_position", "ground_check", "attack_hitbox", "crouch_attack_hitbox", "attack_hitbox_collision_shape", "crouch_hitbox_collision_shape", "collision_shape") groups=["player"]]
 collision_layer = 2
 floor_snap_length = 32.0
 script = ExtResource("1_kyqiw")
@@ -1180,11 +1180,9 @@ position_smoothing_enabled = true
 
 [node name="InputComponent" type="Node" parent="." unique_id=1848018490]
 script = ExtResource("4_dewec")
-metadata/_custom_type_script = "uid://bluhd5yrsquep"
 
 [node name="MovementComponent" type="Node" parent="." unique_id=498294154]
 script = ExtResource("3_gntrk")
-metadata/_custom_type_script = "uid://b3h0pvc0mqwpf"
 
 [node name="StateMachine" type="Node" parent="." unique_id=1279015830 node_paths=PackedStringArray("current_state")]
 script = ExtResource("26_wwmao")
@@ -1293,4 +1291,3 @@ grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_vrod0")
 vertical_alignment = 1
-

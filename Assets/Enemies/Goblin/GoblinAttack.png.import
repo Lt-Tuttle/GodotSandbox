@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmk8ycldjtaan"
-path="res://.godot/imported/GoblinAttack.png-59c0eddff6834e2be6c01de3bbbde101.ctex"
+path="res://.godot/imported/GoblinAttack.png-c40a7821ad14a5f8c09a64c72bb492a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Goblin/GoblinAttack.png"
-dest_files=["res://.godot/imported/GoblinAttack.png-59c0eddff6834e2be6c01de3bbbde101.ctex"]
+source_file="res://assets/Enemies/Goblin/GoblinAttack.png"
+dest_files=["res://.godot/imported/GoblinAttack.png-c40a7821ad14a5f8c09a64c72bb492a7.ctex"]
 
 [params]
 

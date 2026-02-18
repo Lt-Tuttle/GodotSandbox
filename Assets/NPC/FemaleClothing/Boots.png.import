@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c602q7lqxdibk"
-path="res://.godot/imported/Boots.png-2b283f2669ce6c0297e1050199a94281.ctex"
+path="res://.godot/imported/Boots.png-0b2931bf5920b9d86cb3e08119c67004.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/NPC/FemaleClothing/Boots.png"
-dest_files=["res://.godot/imported/Boots.png-2b283f2669ce6c0297e1050199a94281.ctex"]
+source_file="res://assets/NPC/FemaleClothing/Boots.png"
+dest_files=["res://.godot/imported/Boots.png-0b2931bf5920b9d86cb3e08119c67004.ctex"]
 
 [params]
 

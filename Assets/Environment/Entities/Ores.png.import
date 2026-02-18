@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c64m5vsj7ki82"
-path="res://.godot/imported/Ores.png-496749991351cd0f3faabc08f12b4200.ctex"
+path="res://.godot/imported/Ores.png-e0f5374cec662ae2b2aafbce8590a757.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/Entities/Ores.png"
-dest_files=["res://.godot/imported/Ores.png-496749991351cd0f3faabc08f12b4200.ctex"]
+source_file="res://assets/Environment/Entities/Ores.png"
+dest_files=["res://.godot/imported/Ores.png-e0f5374cec662ae2b2aafbce8590a757.ctex"]
 
 [params]
 

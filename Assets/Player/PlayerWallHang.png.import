@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7jluuvjmalwf"
-path="res://.godot/imported/PlayerWallHang.png-091f4b1c3701c4bb6c960f6fd9a0ba4d.ctex"
+path="res://.godot/imported/PlayerWallHang.png-8509dbfd1a6082c8a8eef4f3717a6d4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/PlayerWallHang.png"
-dest_files=["res://.godot/imported/PlayerWallHang.png-091f4b1c3701c4bb6c960f6fd9a0ba4d.ctex"]
+source_file="res://assets/Player/PlayerWallHang.png"
+dest_files=["res://.godot/imported/PlayerWallHang.png-8509dbfd1a6082c8a8eef4f3717a6d4d.ctex"]
 
 [params]
 

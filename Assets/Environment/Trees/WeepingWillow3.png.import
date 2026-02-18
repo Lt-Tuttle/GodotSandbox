@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://upa1a6c7q78u"
-path="res://.godot/imported/WeepingWillow3.png-b6c5ee91310d9e88f103f61c390c4d07.ctex"
+path="res://.godot/imported/WeepingWillow3.png-e1376cf960f9a979a7402af7bc14bbd7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/Trees/WeepingWillow3.png"
-dest_files=["res://.godot/imported/WeepingWillow3.png-b6c5ee91310d9e88f103f61c390c4d07.ctex"]
+source_file="res://assets/Environment/Trees/WeepingWillow3.png"
+dest_files=["res://.godot/imported/WeepingWillow3.png-e1376cf960f9a979a7402af7bc14bbd7.ctex"]
 
 [params]
 

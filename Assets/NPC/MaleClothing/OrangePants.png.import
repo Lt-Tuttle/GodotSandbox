@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1hk73vdb0vi"
-path="res://.godot/imported/OrangePants.png-11b9bf0bc49d907647f6f8068e76c122.ctex"
+path="res://.godot/imported/OrangePants.png-e5376ca967b184a09931ad85504ceedc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/NPC/MaleClothing/OrangePants.png"
-dest_files=["res://.godot/imported/OrangePants.png-11b9bf0bc49d907647f6f8068e76c122.ctex"]
+source_file="res://assets/NPC/MaleClothing/OrangePants.png"
+dest_files=["res://.godot/imported/OrangePants.png-e5376ca967b184a09931ad85504ceedc.ctex"]
 
 [params]
 

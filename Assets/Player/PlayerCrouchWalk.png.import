@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2j1al2uqcg6x"
-path="res://.godot/imported/PlayerCrouchWalk.png-c486ecfe7b2f3dc5fc27b698f9707cb9.ctex"
+path="res://.godot/imported/PlayerCrouchWalk.png-13e8209e95f08dde7b458fd20b6228ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/PlayerCrouchWalk.png"
-dest_files=["res://.godot/imported/PlayerCrouchWalk.png-c486ecfe7b2f3dc5fc27b698f9707cb9.ctex"]
+source_file="res://assets/Player/PlayerCrouchWalk.png"
+dest_files=["res://.godot/imported/PlayerCrouchWalk.png-13e8209e95f08dde7b458fd20b6228ea.ctex"]
 
 [params]
 

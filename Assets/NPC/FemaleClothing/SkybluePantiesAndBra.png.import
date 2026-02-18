@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5agq2ccu3rpg"
-path="res://.godot/imported/SkybluePantiesAndBra.png-4adf9f3589f5198e1a07df1bfdc86e46.ctex"
+path="res://.godot/imported/SkybluePantiesAndBra.png-d3027716551c63bc23c8b041f3454f61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/NPC/FemaleClothing/SkybluePantiesAndBra.png"
-dest_files=["res://.godot/imported/SkybluePantiesAndBra.png-4adf9f3589f5198e1a07df1bfdc86e46.ctex"]
+source_file="res://assets/NPC/FemaleClothing/SkybluePantiesAndBra.png"
+dest_files=["res://.godot/imported/SkybluePantiesAndBra.png-d3027716551c63bc23c8b041f3454f61.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://be0xraqocmml8"
-path="res://.godot/imported/PlayerCrouchTransition.png-cb5d9a0023daa6edcd38b5e49c3574dd.ctex"
+path="res://.godot/imported/PlayerCrouchTransition.png-616b71b0f2177b0a33a100f99bc794a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/PlayerCrouchTransition.png"
-dest_files=["res://.godot/imported/PlayerCrouchTransition.png-cb5d9a0023daa6edcd38b5e49c3574dd.ctex"]
+source_file="res://assets/Player/PlayerCrouchTransition.png"
+dest_files=["res://.godot/imported/PlayerCrouchTransition.png-616b71b0f2177b0a33a100f99bc794a6.ctex"]
 
 [params]
 

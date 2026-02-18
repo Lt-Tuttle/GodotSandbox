@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dn5nicbeuf6gu"
-path="res://.godot/imported/Campfire.png-5e1d09a587df279f60d46210a3b29669.ctex"
+path="res://.godot/imported/Campfire.png-5dd4d36b5df06ab88d7b57e31d8f9ab1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/Animated/Campfire.png"
-dest_files=["res://.godot/imported/Campfire.png-5e1d09a587df279f60d46210a3b29669.ctex"]
+source_file="res://assets/Environment/Animated/Campfire.png"
+dest_files=["res://.godot/imported/Campfire.png-5dd4d36b5df06ab88d7b57e31d8f9ab1.ctex"]
 
 [params]
 

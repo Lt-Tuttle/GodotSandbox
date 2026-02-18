@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtihaqyp0g1ix"
-path="res://.godot/imported/MaleSword.png-e1d72e776276942d8a841423746584e8.ctex"
+path="res://.godot/imported/MaleSword.png-8be4eb95f2e70fa072261e9549e2fdbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/NPC/MaleHand/MaleSword.png"
-dest_files=["res://.godot/imported/MaleSword.png-e1d72e776276942d8a841423746584e8.ctex"]
+source_file="res://assets/NPC/MaleHand/MaleSword.png"
+dest_files=["res://.godot/imported/MaleSword.png-8be4eb95f2e70fa072261e9549e2fdbd.ctex"]
 
 [params]
 

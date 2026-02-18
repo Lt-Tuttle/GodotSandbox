@@ -1,11 +1,13 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://btm4hcemwpe24"]
 
-[ext_resource type="Script" path="res://entities/enemies/skeleton.gd" id="1_giix8"]
-[ext_resource type="Texture2D" path="res://assets/Enemies/Skeleton/SkeletonAttack.png" id="1_kx4xq"]
-[ext_resource type="Script" path="res://components/health_component.gd" id="5_i43q3"]
-[ext_resource type="Script" path="res://entities/player/movement_component.gd" id="6_4agy0"]
-[ext_resource type="Texture2D" path="res://assets/Enemies/Skeleton/SkeletonIdle.png" id="31_4tm7w"]
-[ext_resource type="Texture2D" path="res://assets/Enemies/Skeleton/SkeletonWalk.png" id="32_sq3ur"]
+[ext_resource type="Texture2D" uid="uid://dyoiyqdr71ypb" path="res://assets/Enemies/Skeleton/SkeletonAttack.png" id="1_kx4xq"]
+[ext_resource type="BehaviorTree" uid="uid://dfpi351g18025" path="res://ai/basic_enemy.tres" id="2_56m75"]
+[ext_resource type="Script" uid="uid://opidcsxhww4g" path="res://components/health_component.gd" id="5_i43q3"]
+[ext_resource type="Script" uid="uid://bqd5x2n61rprs" path="res://entities/player/movement_component.gd" id="6_4agy0"]
+[ext_resource type="Texture2D" uid="uid://bndovw4r4si5v" path="res://assets/Enemies/Skeleton/SkeletonIdle.png" id="31_4tm7w"]
+[ext_resource type="Texture2D" uid="uid://biq1f244j0c36" path="res://assets/Enemies/Skeleton/SkeletonWalk.png" id="32_sq3ur"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_dsnb0"]
 
 [sub_resource type="Animation" id="Animation_yocjf"]
 resource_name = "Attack"
@@ -259,14 +261,14 @@ size = Vector2(12.500004, 37.500023)
 radius = 13.749999
 height = 47.499996
 
-[node name="Skeleton" type="CharacterBody2D" unique_id=1200533241 node_paths=PackedStringArray("player_check", "health_component", "movement_component")]
+[node name="Skeleton" type="CharacterBody2D" unique_id=1200533241]
 scale = Vector2(0.8, 0.8)
 collision_layer = 8
 collision_mask = 15
-script = ExtResource("1_giix8")
-player_check = NodePath("Pivot/PlayerCheck")
-health_component = NodePath("HealthComponent")
-movement_component = NodePath("MovementComponent")
+
+[node name="BTPlayer" type="BTPlayer" parent="." unique_id=1897254464]
+behavior_tree = ExtResource("2_56m75")
+blackboard_plan = SubResource("BlackboardPlan_dsnb0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=809546910]
 root_node = NodePath("../..")
@@ -279,11 +281,9 @@ shape = SubResource("RectangleShape2D_m7p5j")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=81963509]
 script = ExtResource("5_i43q3")
-metadata/_custom_type_script = "uid://cqd42lgh8sneh"
 
 [node name="MovementComponent" type="Node" parent="." unique_id=2118088999]
 script = ExtResource("6_4agy0")
-metadata/_custom_type_script = "uid://b3h0pvc0mqwpf"
 
 [node name="Pivot" type="Node2D" parent="." unique_id=2011405614]
 
@@ -319,4 +319,3 @@ collision_mask = 2
 position = Vector2(46.25, -1.25)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_qe480")
-

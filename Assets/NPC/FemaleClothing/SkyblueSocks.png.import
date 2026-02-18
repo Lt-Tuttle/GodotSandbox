@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dafk083ykv7cx"
-path="res://.godot/imported/SkyblueSocks.png-9cf03858c035a8cb7f23608344a9221c.ctex"
+path="res://.godot/imported/SkyblueSocks.png-0958853b5ca0f5e9c826a438bdfe3b9b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/NPC/FemaleClothing/SkyblueSocks.png"
-dest_files=["res://.godot/imported/SkyblueSocks.png-9cf03858c035a8cb7f23608344a9221c.ctex"]
+source_file="res://assets/NPC/FemaleClothing/SkyblueSocks.png"
+dest_files=["res://.godot/imported/SkyblueSocks.png-0958853b5ca0f5e9c826a438bdfe3b9b.ctex"]
 
 [params]
 

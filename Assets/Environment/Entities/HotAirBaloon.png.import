@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2dmixk7h28kf"
-path="res://.godot/imported/HotAirBaloon.png-4561316ed8f7fecc3f36fb4c9e6d4aeb.ctex"
+path="res://.godot/imported/HotAirBaloon.png-cb6515beb17ee4de62c7569059656c58.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/Entities/HotAirBaloon.png"
-dest_files=["res://.godot/imported/HotAirBaloon.png-4561316ed8f7fecc3f36fb4c9e6d4aeb.ctex"]
+source_file="res://assets/Environment/Entities/HotAirBaloon.png"
+dest_files=["res://.godot/imported/HotAirBaloon.png-cb6515beb17ee4de62c7569059656c58.ctex"]
 
 [params]
 

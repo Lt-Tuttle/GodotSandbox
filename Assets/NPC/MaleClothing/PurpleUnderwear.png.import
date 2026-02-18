@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bghor53p28s5v"
-path="res://.godot/imported/PurpleUnderwear.png-03801b83df656a3fbfea4ff6e3f924ca.ctex"
+path="res://.godot/imported/PurpleUnderwear.png-e6e2291fcb94ef726237b665f02cfc2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/NPC/MaleClothing/PurpleUnderwear.png"
-dest_files=["res://.godot/imported/PurpleUnderwear.png-03801b83df656a3fbfea4ff6e3f924ca.ctex"]
+source_file="res://assets/NPC/MaleClothing/PurpleUnderwear.png"
+dest_files=["res://.godot/imported/PurpleUnderwear.png-e6e2291fcb94ef726237b665f02cfc2d.ctex"]
 
 [params]
 

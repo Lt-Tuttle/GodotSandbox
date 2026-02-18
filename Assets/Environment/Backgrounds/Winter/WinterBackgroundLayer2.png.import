@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwo8ou4xrafdy"
-path="res://.godot/imported/WinterBackgroundLayer2.png-416d85656c2d45b2330cd25ec15e7531.ctex"
+path="res://.godot/imported/WinterBackgroundLayer2.png-15ba01bc490a7dd7115d0504869dcb9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Environment/Backgrounds/Winter/WinterBackgroundLayer2.png"
-dest_files=["res://.godot/imported/WinterBackgroundLayer2.png-416d85656c2d45b2330cd25ec15e7531.ctex"]
+source_file="res://assets/Environment/Backgrounds/Winter/WinterBackgroundLayer2.png"
+dest_files=["res://.godot/imported/WinterBackgroundLayer2.png-15ba01bc490a7dd7115d0504869dcb9a.ctex"]
 
 [params]
 
